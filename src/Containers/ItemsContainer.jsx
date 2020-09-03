@@ -4,3 +4,5 @@ function ItemsContainer(props) {
 
 
 }
+
+export default ItemsContainer;
