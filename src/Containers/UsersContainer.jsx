@@ -24,21 +24,22 @@ function UsersContainer(props) {
     }
 
 
-    const handleSignup = async (bodyObj) => {
+    const handleLogin = async (bodyObj) => {
         const options = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             },
-            body: JSON.stringify({ user: { bodyObj } })
+            body: JSON.stringify({ user: bodyObj })
         };
         let response = await fetch("http://localhost:3001/api/v1/login", options);
         let data = await response.json();
         setToken(data.jwt);
     }
 
-    const handleLogin = async () => {
+    // will add signup form and refactor functions for user auth flow within app
+    const handlePrivledgedRequestOrSetUser = async () => {
         const options = {
             method: 'GET',
             headers: {
@@ -51,13 +52,13 @@ function UsersContainer(props) {
         let data = await response.json();
         console.log(data);
     }  
-
+    console.log("UsersContainer", token)
     return (
         <>
             <h1>UsersContainer</h1>
             <Switch>
-                <Route path="/signup" render={() => <UserForm token={token} handleSubmit={handleSignup}/>}/>
                 <Route path="/login" render={() => <UserForm token={token} handleSubmit={handleLogin}/>}/>
+                {/* <Route path="/login" render={() => <UserForm token={token} handleSubmit={handleLogin}/>}/> */}
             </Switch>
         </>
         

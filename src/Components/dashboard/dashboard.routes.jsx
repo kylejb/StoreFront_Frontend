@@ -9,8 +9,7 @@ class DashboardRouter extends Component {
         return (
             <div>
                 <Route path="/orders" component={Orders}/>
-                <Route path="/transactions" 
-                    component={Transactions}/>
+                <Route path="/transactions" component={Transactions} />
             </div>
         );
     }
