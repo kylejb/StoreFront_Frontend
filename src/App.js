@@ -8,13 +8,11 @@ const App = () => {
   const [user, setUser] = useState(null);
 
   return (
-    <Router >
     <div className="App">
       <AppRoute />
       <ItemsContainer />
       <UsersContainer user={user} />
     </div>
-    </Router>
   );
 }
 
