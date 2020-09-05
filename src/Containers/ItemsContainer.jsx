@@ -3,7 +3,7 @@ import ItemList from './ItemList'
 import {Route} from "react-router-dom"
 import ItemShow from '../Components/ItemShow'
 
-const API = 'http://localhost:3001/'
+const API = 'http://localhost:3000/'
 class ItemsContainer extends React.Component {
     constructor(){
         super()
