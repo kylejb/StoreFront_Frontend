@@ -7,7 +7,7 @@ function UsersContainer(props) {
 
     // fetch helper function
     const fetchUser = async (bodyObj) => {
-        let endPoint, fetchMethod, url = `http://localhost:3001/api/v1/${token === "" ? (endPoint = 'login') : (endPoint = 'profile')}`;
+        let endPoint, fetchMethod, url = `http://localhost:3000/api/v1/${token === "" ? (endPoint = 'login') : (endPoint = 'profile')}`;
         
         // fetchMethod === 'GET' ? myHeader = ('Authorization':`bearer ${token}`) : null
 
@@ -33,7 +33,7 @@ function UsersContainer(props) {
             },
             body: JSON.stringify({ user: bodyObj })
         };
-        let response = await fetch("http://localhost:3001/api/v1/login", options);
+        let response = await fetch("http://localhost:3000/api/v1/login", options);
         let data = await response.json();
         setToken(data.jwt);
     }
@@ -48,7 +48,7 @@ function UsersContainer(props) {
                 'Authorization': `bearer ${token}`
             }
         };
-        let response = await fetch("http://localhost:3001/api/v1/profile", options);
+        let response = await fetch("http://localhost:3000/api/v1/profile", options);
         let data = await response.json();
         console.log(data);
     }  
