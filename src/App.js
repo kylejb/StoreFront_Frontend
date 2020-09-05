@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import AppRoute from './app.routes';
 import ItemsContainer from './Containers/ItemsContainer';
 import UsersContainer from './Containers/UsersContainer';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [user, setUser] = useState(null);
+
   return (
+    <Router >
     <div className="App">
+      <AppRoute />
       <ItemsContainer />
-      <UsersContainer />
+      <UsersContainer user={user} />
     </div>
+    </Router>
   );
 }
 
