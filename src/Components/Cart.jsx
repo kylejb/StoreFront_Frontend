@@ -1,11 +1,16 @@
 import React from 'react';
 
-const Cart = ( props ) => {
+class Cart extends React.Component {
 
+    state = {
+        forCheckOut: []
+    };
 
-    return (
-        <h2>Cart</h2>
-    );
+    render() {
+        return (
+            <h2>Cart</h2>
+        );
+     };
 }
 
 export default Cart;
