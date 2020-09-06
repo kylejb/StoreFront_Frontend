@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const UserForm = (props) => {
+const LoginForm = (props) => {
     const [email, setEmail] = useState(""),
         [password, setPassword] = useState(""),
         [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -14,7 +14,7 @@ const UserForm = (props) => {
 
     return (
         <>
-            <h2>UserForm (Login/Signup-Testing)</h2>
+            <h2>LoginForm</h2>
             <form onSubmit={handleSubmitHelper}>
                 <input type="text" placeholder="email address" value={email} onChange={e => setEmail(e.target.value)}/>
                 <input type="text" placeholder="password" value={password} onChange={e => setPassword(e.target.value)}/>
@@ -25,4 +25,4 @@ const UserForm = (props) => {
     );
 }
 
-export default UserForm;
+export default LoginForm;
