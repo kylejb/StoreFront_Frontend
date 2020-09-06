@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history'
-import Dashboard from './Components/dashboard/dashboard.component';
+import Navbar from './Components/navbar/navbar.component';
+// import LoginForm from './Components/LoginForm';
+
 
 class AppRoute extends Component {
 
@@ -9,7 +11,7 @@ class AppRoute extends Component {
         const history = createBrowserHistory();
         return (
             <Router history={history}>
-                <Route path="/" component={Dashboard}/>
+                <Route path="/" component={Navbar} />
             </Router>
         );
     }

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component }  from 'react';
 
-class Cart extends React.Component {
+class Cart extends Component {
 
     state = {
         forCheckOut: []

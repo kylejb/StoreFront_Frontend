@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import LoginForm from '../Components/LoginForm';
+import ItemsContainer from './ItemsContainer';
 import RegistrationForm from '../Components/RegistrationForm';
+// import LoginForm from '../Components/LoginForm';
 
-
-const UsersContainer = (props) => {
-    const [token, setToken] = useState("");
+const UserContainer = ( props ) => {
+    const [token, setToken] = useState(null),
+          [currentUser, setCurrentUser] = useState(null);
 
 
     const handleLoginForm = async (currentUserObj) => {
@@ -19,11 +20,11 @@ const UsersContainer = (props) => {
         };
         let response = await fetch("http://localhost:3000/api/v1/login", options);
         let data = await response.json();
-        setToken(data.jwt);
+        setToken(data.jwt); setCurrentUser(data.user.name);
     }
 
     const handleRegistrationForm = async (newUserObj) => {
-        console.log("Create New User Here", newUserObj)
+        // console.log("Create New User Here", newUserObj)
 
         const options = {
             method: 'POST',
@@ -36,25 +37,24 @@ const UsersContainer = (props) => {
 
         let response = await fetch("http://localhost:3000/api/v1/users", options);
         let data = await response.json();
-        console.log("handleRegistrationForm Fetch Response: ", data);
-        setToken(data.jwt)
+        // console.log("handleRegistrationForm Fetch Response: ", data);
+        setToken(data.jwt);
     }
 
 
-    console.log("Rendered UsersContainer... state token value is: ", token)
     return (
         <>
-            <h1>UsersContainer</h1>
+            <h4>User Container</h4>
+            <ItemsContainer token={token} currentUser={currentUser} />
             <Switch>
-                <Route path="/login" render={() => <LoginForm handleSubmit={handleLoginForm} />}/>
+                {/* <Route path="/login" render={() => <LoginForm handleSubmit={handleLoginForm} />}/> */}
                 <Route path="/signup" render={() => <RegistrationForm handleSubmit={handleRegistrationForm} />}/>
             </Switch>
         </>
-        
     );
 }
 
-export default UsersContainer;
+export default UserContainer;
 
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserLandingPage = (props) => {
+const UserLandingPage = ( props ) => {
     return <h4>UserLandingPage</h4>;
 }
 

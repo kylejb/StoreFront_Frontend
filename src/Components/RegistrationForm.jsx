@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const RegistrationForm = (props) => {
+const RegistrationForm = ( props ) => {
     const [email, setEmail] = useState(""),
         [password, setPassword] = useState(""),
         [passwordConfirmation, setPasswordConfirmation] = useState("");

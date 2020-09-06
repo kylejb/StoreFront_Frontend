@@ -1,35 +1,67 @@
-body {
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body, 
+#root {
+  height: 100vh;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body, input, select, textarea {
+  font-size: 1.6rem;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
-.App {
-  text-align: center;
-}
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  grid-area: header;
+  font-size: 2.5rem;
+  background-color: #4c6c8c;
+  color: #ffffff;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: .5px;
 }
 
-.App-link {
-  color: #61dafb;
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #203040;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas: "headers" "main" "footer";
+  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-columns: 1fr;
+  height: 100%;
+}
+
+.nav-header {
+  grid-area: header;
+  background-color: #4c6c8c;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: .5px;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: orange;
+
 }
 
 .card {
@@ -63,12 +95,10 @@ button {
 }
 
 button:hover {
-  
   background-color: white;
   border: #e04b52 solid 1px;
   color: black;
 }
-
 
 .container {
   padding: 1rem;
@@ -85,11 +115,27 @@ button:hover {
 .fling-minislide img:nth-child(2){animation-delay:5s;}
 .fling-minislide img:nth-child(1){animation-delay:10s;}
 
-
-
 .product-image {
   justify-self: center;
   height: 15rem;
   width: 15rem;
 }
 
+
+
+/* 
+
+* Temp Repository for Unused CSS; attributes below may be useful above...
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+*/
