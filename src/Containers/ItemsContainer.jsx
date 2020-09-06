@@ -2,6 +2,7 @@ import React from 'react';
 import ItemList from './ItemList'
 import {Route} from "react-router-dom"
 import ItemShow from '../Components/ItemShow'
+import Cart from '../Components/Cart';
 
 const API = 'http://localhost:3000/'
 class ItemsContainer extends React.Component {
@@ -9,7 +10,7 @@ class ItemsContainer extends React.Component {
         super()
         this.state={
             items: [],
-            swag: {"id":1,"name":"Name1","img_url":"http://lorempixel.com/402/200/","cost":1.0,"description":"Description1","created_at":"2020-09-04T07:43:30.877Z","updated_at":"2020-09-04T07:43:30.877Z","category":"CategoryKids"}
+            testItems: {"id":1,"name":"Name1","img_url":"http://lorempixel.com/402/200/","cost":1.0,"description":"Description1","created_at":"2020-09-04T07:43:30.877Z","updated_at":"2020-09-04T07:43:30.877Z","category":"CategoryKids"}
             
         }
 
@@ -35,7 +36,8 @@ class ItemsContainer extends React.Component {
         return(
             <>
                 <h1>Hello</h1>
-                <Route exact path={`/items/:itemId`} render={routerProps => <ItemShow {...routerProps} items={this.state.swag} /> }/>
+                <Cart />
+                <Route exact path={`/items/:itemId`} render={routerProps => <ItemShow {...routerProps} items={this.state.testItems} /> }/>
                 <Route exact path="/items" render={routerProps => <ItemList {...routerProps} items={this.state.items} /> }/>
 
                 
