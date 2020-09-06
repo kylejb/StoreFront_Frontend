@@ -40,7 +40,6 @@
 .card {
   text-align: center;
   padding: 2px;
-
   width: 15rem;
   height: 30rem;
   display: inline-grid;
@@ -98,6 +97,5 @@ button:hover {
   height: 15rem;
   width: 15rem;
 }
-
 
 
