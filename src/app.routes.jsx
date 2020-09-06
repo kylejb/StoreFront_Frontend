@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history'
 import Dashboard from './Components/dashboard/dashboard.component';
 
 class AppRoute extends Component {
 
     render() {
-        const history = createHistory();
+        const history = createBrowserHistory();
         return (
             <Router history={history}>
                 <Route path="/" component={Dashboard}/>
