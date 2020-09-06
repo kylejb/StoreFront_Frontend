@@ -31,7 +31,7 @@ class ItemsContainer extends React.Component {
 
 
     render(){
-        // console.log("vacation jason",this.props.match.url)
+         
         return(
             <>
                 <h1>Hello</h1>
