@@ -11,3 +11,85 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  text-align: center;
+}
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.card {
+  text-align: center;
+  padding: 2px;
+  width: 15rem;
+  height: 30rem;
+  display: inline-grid;
+  margin: 0rem 2rem;
+}
+
+
+button {
+  margin:2px;
+  padding: 10px;
+  position: relative;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  height: 3rem;
+  width: auto;
+  color: whitesmoke;
+  font-size: 15px;
+  justify-self: center;
+}
+
+.buttonContainer {
+  display:inline-block;
+  text-align: center;
+  padding: 1rem;
+}
+
+button:hover {
+  
+  background-color: white;
+  border: #e04b52 solid 1px;
+  color: black;
+}
+
+
+.container {
+  padding: 1rem;
+  width: stretch;
+  height: auto;
+  background: #515DA2;
+  opacity: .8;
+}
+.fling-minislide img{ animation:fling-minislide 15s infinite; opacity:0;}
+
+@keyframes fling-minislide {25%{opacity:1;} 40%{opacity:0;}}
+
+.fling-minislide img:nth-child(3){animation-delay:0s;}
+.fling-minislide img:nth-child(2){animation-delay:5s;}
+.fling-minislide img:nth-child(1){animation-delay:10s;}
+
+
+
+.product-image {
+  justify-self: center;
+  height: 15rem;
+  width: 15rem;
+}
+
