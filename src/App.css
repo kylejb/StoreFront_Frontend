@@ -62,10 +62,19 @@ button {
   justify-self: top;
 }
 
-.buttonContainer {
+.button-container {
   display:inline-block;
   text-align: center;
   padding: 1rem;
+}
+.button-container a button {
+
+  text-align: center;
+  width: 50%;
+  height: 50%;
+  font-size: 75%;
+  padding-bottom: 15px;
+
 }
 
 button:hover {
@@ -131,4 +140,29 @@ button:hover {
   width: auto;
   max-height: 300px;
   max-width: 800px
+}
+.card-image{
+  position: relative;
+}
+.corner-button {
+  position: absolute;
+   top: 0;
+   right: 0;
+ background-color: transparent;
+ font-size: 15px;
+ border: none;
+ cursor: pointer;
+ border-radius: 5px;
+ text-align: top;
+ height:16px;
+ width: 16px;
+ padding:0;
+ margin-right:10;
+}
+
+.corner-button:hover {
+background-color: transparent;
+border: none;
+ opacity:200%;
+ font-size:20px;
 }
