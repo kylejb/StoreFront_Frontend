@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import ItemsContainer from './ItemsContainer';
 import RegistrationForm from '../Components/RegistrationForm';
-// import LoginForm from '../Components/LoginForm';
+import LoginForm from '../Components/LoginForm';
 
 const UserContainer = ( props ) => {
     const [token, setToken] = useState(null),
@@ -20,7 +19,7 @@ const UserContainer = ( props ) => {
         };
         let response = await fetch("http://localhost:3000/api/v1/login", options);
         let data = await response.json();
-        setToken(data.jwt); setCurrentUser(data.user.name);
+        setToken(data.jwt); setCurrentUser(data.user);
     }
 
     const handleRegistrationForm = async (newUserObj) => {
@@ -41,13 +40,14 @@ const UserContainer = ( props ) => {
         setToken(data.jwt);
     }
 
+    console.log("UserContainer PROPS", props)
 
     return (
         <>
             <h4>User Container</h4>
-            <ItemsContainer token={token} currentUser={currentUser} />
+            <LoginForm handleSubmit={handleLoginForm} />
             <Switch>
-                {/* <Route path="/login" render={() => <LoginForm handleSubmit={handleLoginForm} />}/> */}
+                <Route path="/login" render={() => <LoginForm handleSubmit={handleLoginForm} />} />
                 <Route path="/signup" render={() => <RegistrationForm handleSubmit={handleRegistrationForm} />}/>
             </Switch>
         </>
