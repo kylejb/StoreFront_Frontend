@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AdminView = (props) => {
+const AdminView = ( props ) => {
     return <h4>AdminView</h4>;
 }
 
