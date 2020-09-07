@@ -18,7 +18,7 @@ const ItemShow = (props) => {
         <>
           <h2> ITEM SHOW PAGE</h2>
           <div>
-            <h3>{ item.name }</h3>
+            <h1>{ item.name }</h1>
             <div className="itemDisplay" >
               <img src={item.img_url}  alt={item.name}/>
               <div>

@@ -130,4 +130,5 @@ button:hover {
   padding-right: 100px;
   width: auto;
   max-height: 300px;
+  max-width: 800px
 }
