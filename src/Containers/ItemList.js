@@ -2,19 +2,31 @@ import React from 'react'
 import ItemCard from '../Components/ItemCard'
 
 
-const ItemList = ( props ) => {
-    console.log("i'm inside itemlist, the following is props",  props)
-
-    const displayItems = () => {
-       return props.items.map(itemObj => <ItemCard key={itemObj.id} name={itemObj.name} cost={itemObj.cost} img={itemObj.img_url} id={itemObj.id} addToCart={props.addToCart}/>)
+const ItemList =(props)=>{
+ 
+    
+    const displayItems = () =>{
+       
+       return props.items.map(itemObj =>  <ItemCard key={itemObj.id} name={itemObj.name} cost={itemObj.cost} img={itemObj.img_url} id={itemObj.id} addToCart ={props.addToCart} />)
     }
 
 
-    return (
-        <div className="main">
-            {displayItems()}
+    return(
+        <div className={props.styling} >
+        
+        {displayItems()}
+
+
         </div>
-    );
+
+    )
+
+
+
 }
 
-export default ItemList;
+export default ItemList
+
+ItemList.defaultProps= {
+    styling: "main"
+}

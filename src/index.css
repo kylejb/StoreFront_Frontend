@@ -64,64 +64,6 @@ a:hover {
 
 }
 
-.card {
-  text-align: center;
-  padding: 2px;
-  width: 15rem;
-  height: 30rem;
-  display: inline-grid;
-  margin: 0rem 2rem;
-}
-
-
-button {
-  margin:2px;
-  padding: 10px;
-  position: relative;
-  background-color: black;
-  border: none;
-  border-radius: 5px;
-  height: 3rem;
-  width: auto;
-  color: whitesmoke;
-  font-size: 15px;
-  justify-self: center;
-}
-
-.buttonContainer {
-  display:inline-block;
-  text-align: center;
-  padding: 1rem;
-}
-
-button:hover {
-  background-color: white;
-  border: #e04b52 solid 1px;
-  color: black;
-}
-
-.container {
-  padding: 1rem;
-  width: stretch;
-  height: auto;
-  background: #515DA2;
-  opacity: .8;
-}
-.fling-minislide img{ animation:fling-minislide 15s infinite; opacity:0;}
-
-@keyframes fling-minislide {25%{opacity:1;} 40%{opacity:0;}}
-
-.fling-minislide img:nth-child(3){animation-delay:0s;}
-.fling-minislide img:nth-child(2){animation-delay:5s;}
-.fling-minislide img:nth-child(1){animation-delay:10s;}
-
-.product-image {
-  justify-self: center;
-  height: 15rem;
-  width: 15rem;
-}
-
-
 
 /* 
 
@@ -139,3 +81,133 @@ button:hover {
 }
 
 */
+
+.card {
+  text-align: center;
+  padding: 2px;
+  width: 15rem;
+  height: 30rem;
+  display: inline-grid;
+  margin: 0rem 2rem;
+  padding-bottom:10%;
+}
+
+
+button {
+  margin:2px;
+  padding: 10px;
+  position: relative;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+  color: whitesmoke;
+  font-size: 100%;
+  justify-self: top;
+}
+
+.button-container {
+  display:inline-block;
+  text-align: center;
+  padding: 1rem;
+}
+.button-container a button {
+
+  text-align: center;
+  width: 50%;
+  height: 50%;
+  font-size: 75%;
+  padding-bottom: 15px;
+
+}
+
+button:hover {
+  
+  background-color: white;
+  border: #e04b52 solid 1px;
+  color: black;
+}
+
+
+.container {
+  padding: 1rem;
+  width: stretch;
+  height: auto;
+  background: #515DA2;
+  opacity: .8;
+}
+.fling-minislide img{ animation:fling-minislide 15s infinite; opacity:0;}
+
+@keyframes fling-minislide {25%{opacity:1;} 40%{opacity:0;}}
+
+.fling-minislide img:nth-child(3){animation-delay:0s;}
+.fling-minislide img:nth-child(2){animation-delay:5s;}
+.fling-minislide img:nth-child(1){animation-delay:10s;}
+
+
+
+.product-image {
+  justify-self: center;
+  height: 200px;
+  width: 100%;
+}
+
+.gallery{
+  display: -webkit-flex;
+  height: 100%;
+  background-color: purple;
+  -webkit-align-items: flex-end;
+  -webkit-justify-content: center;
+}
+
+
+.gallery > .card {
+  text-align: center;
+  padding: 2px;
+  width: 15rem;
+  height: 50%;
+  display: inline-grid;
+  margin: 0rem 2rem;
+}
+
+.itemDisplay{
+  display: inline-flex;
+  padding: 100px;
+}
+.itemDisplay button{
+  height:50px;
+  background-color:blue;
+}
+
+.itemDisplay img{
+  padding-right: 100px;
+  width: auto;
+  max-height: 300px;
+  max-width: 800px
+}
+.card-image{
+  position: relative;
+}
+.corner-button {
+  position: absolute;
+   top: 0;
+   right: 0;
+ background-color: transparent;
+ font-size: 15px;
+ border: none;
+ cursor: pointer;
+ border-radius: 5px;
+ text-align: top;
+ height:16px;
+ width: 16px;
+ padding:0;
+ margin-right:10;
+}
+
+.corner-button:hover {
+background-color: transparent;
+border: none;
+ opacity:200%;
+ font-size:20px;
+}

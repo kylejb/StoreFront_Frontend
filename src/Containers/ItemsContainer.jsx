@@ -9,9 +9,9 @@ class ItemsContainer extends React.Component {
     constructor(){
         super()
         this.state={
-            items: [],
-            testItems: {"id":1,"name":"Name1","img_url":"http://lorempixel.com/402/200/","cost":1.0,"description":"Description1","created_at":"2020-09-04T07:43:30.877Z","updated_at":"2020-09-04T07:43:30.877Z","category":"CategoryKids"},
-            cart: []
+            items: [{"id":1,"name":"Name1","img_url":"http://lorempixel.com/402/200/","cost":1.0,"description":"Description1","created_at":"2020-09-04T07:43:30.877Z","updated_at":"2020-09-04T07:43:30.877Z","category":"CategoryKids"}],
+            cart:[]
+              
         }
     }
 
@@ -57,16 +57,17 @@ class ItemsContainer extends React.Component {
 
     //? Should be moved to ItemsList (-@kylejb)
     render(){
-        // console.log("vacation jason",this.props.match.url)
-        return (
-            <div className="grid-container">
-                <h4>Items Container</h4>
-                <Switch>
-                    <Route path={`/items/:itemId`} render={routerProps => <ItemShow {...routerProps} items={this.state.items} addToCart={this.handleAddToCart} /> }/>
-                    <Route path="/" render={routerProps => <ItemList {...routerProps} items={this.state.items} addToCart={this.handleAddToCart} />} />
-                </Switch>
-            </div>
-        );
+         
+        return(
+            
+                <div className="grid-container">
+                    <Route  path={`/items/:itemId`} render={routerProps => <ItemShow {...routerProps} items={this.state.items} addToCart={this.handleAddToCart} /> }/>
+                    <Route exact path="/items" render={routerProps => <ItemList {...routerProps} items={this.state.items} addToCart={this.handleAddToCart}/> }/>
+                 </div>
+                
+                
+            
+        )
     }
 }
 
