@@ -63,7 +63,7 @@ class ItemsContainer extends React.Component {
                 <h4>Items Container</h4>
                 <Switch>
                     <Route path={`/items/:itemId`} render={routerProps => <ItemShow {...routerProps} items={this.state.items} addToCart={this.handleAddToCart} /> }/>
-                    <Route path="/items" render={routerProps => <ItemList {...routerProps} items={this.state.items} addToCart={this.handleAddToCart} />} />
+                    <Route path="/" render={routerProps => <ItemList {...routerProps} items={this.state.items} addToCart={this.handleAddToCart} />} />
                 </Switch>
             </div>
         );

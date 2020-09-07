@@ -8,7 +8,7 @@ const LoginForm = ( props ) => {
         
     const handleSubmitHelper = (e) => {
         e.preventDefault();
-        props.handleSubmit({email: email, password: password})
+        props.handleUserState({email: email, password: password})
     }
 
 

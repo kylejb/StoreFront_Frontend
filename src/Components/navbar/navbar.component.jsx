@@ -32,7 +32,7 @@ class Dashboard extends Component {
                         </NavLink>
                     </nav>
                 </div>
-                <NavbarRouter />
+                <NavbarRouter handleUserState={this.props.handleUserState} />
             </>
         );
     }

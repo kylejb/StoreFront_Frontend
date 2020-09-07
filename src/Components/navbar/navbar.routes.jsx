@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Orders from './orders.component';
 import Transactions from './transactions.component';
-// import LoginForm from '../../Components/LoginForm'
-import UserContainer from '../../Containers/UserContainer';
+import UserContainer from '../../Containers/UserContainer'
+import LoginForm from '../LoginForm';
 
 
 class NavbarRouter extends Component {
@@ -13,7 +13,7 @@ class NavbarRouter extends Component {
             <div>
                 <Route path="/orders" component={Orders} />
                 <Route path="/transactions" component={Transactions} />
-                <Route path="/signin" component={UserContainer} />
+                <Route path="/signin" render={() => <UserContainer handleUserState={this.props.handleUserState} />} />
             </div>
         );
     }

@@ -11,7 +11,7 @@ class AppRoute extends Component {
         const history = createBrowserHistory();
         return (
             <Router history={history}>
-                <Route path="/" component={Navbar} />
+                <Route path="/" render={(routerProps) => <Navbar {...routerProps} handleUserState={this.props.handleUserState} />} />
             </Router>
         );
     }

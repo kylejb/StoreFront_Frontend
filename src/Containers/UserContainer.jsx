@@ -45,9 +45,9 @@ const UserContainer = ( props ) => {
     return (
         <>
             <h4>User Container</h4>
-            <LoginForm handleSubmit={handleLoginForm} />
+            {/* <LoginForm handleSubmit={handleLoginForm} /> */}
             <Switch>
-                <Route path="/login" render={() => <LoginForm handleSubmit={handleLoginForm} />} />
+                <Route path="/signin" render={() => <LoginForm handleSubmit={handleLoginForm} />} />
                 <Route path="/signup" render={() => <RegistrationForm handleSubmit={handleRegistrationForm} />}/>
             </Switch>
         </>
