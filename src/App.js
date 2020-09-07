@@ -1,7 +1,8 @@
 import React from 'react';
 import AppRoute from './app.routes';
-import ItemsContainer from './Containers/ItemsContainer';
-import UsersContainer from './Containers/UsersContainer';
+// import UserContainer from './Containers/UserContainer';
+// import ItemsContainer from './Containers/ItemsContainer';
+import UserItemsWrapper from './Containers/UserItemsWrapper';
 
 const App = () => {
   // const [user, setUser] = useState(null);
@@ -9,8 +10,7 @@ const App = () => {
   return (
     <div className="App">
       <AppRoute />
-      <ItemsContainer />
-      <UsersContainer />
+      <UserItemsWrapper />
     </div>
   );
 }
