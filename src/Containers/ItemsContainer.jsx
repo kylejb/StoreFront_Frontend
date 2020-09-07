@@ -8,7 +8,8 @@ class ItemsContainer extends React.Component {
     constructor(){
         super()
         this.state={
-            items: [],
+            items: [{"id":1,"name":"Name1","img_url":"http://lorempixel.com/402/200/","cost":1.0,"description":"Description1","created_at":"2020-09-04T07:43:30.877Z","updated_at":"2020-09-04T07:43:30.877Z","category":"CategoryKids"}
+        ],
             swag: {"id":1,"name":"Name1","img_url":"http://lorempixel.com/402/200/","cost":1.0,"description":"Description1","created_at":"2020-09-04T07:43:30.877Z","updated_at":"2020-09-04T07:43:30.877Z","category":"CategoryKids"}
             
         }
@@ -34,9 +35,9 @@ class ItemsContainer extends React.Component {
          
         return(
             <>
-                <h1>Hello</h1>
-                <Route exact path={`/items/:itemId`} render={routerProps => <ItemShow {...routerProps} items={this.state.swag} /> }/>
-                <Route exact path="/items" render={routerProps => <ItemList {...routerProps} items={this.state.items} /> }/>
+                
+                <Route  path={`/items/:itemId`} render={routerProps => <ItemShow {...routerProps} items={this.state.items} addToCart ={this.props.addToCart} /> }/>
+                <Route exact path="/items" render={routerProps => <ItemList {...routerProps} items={this.state.items} addToCart ={this.props.addToCart}/> }/>
 
                 
                 
