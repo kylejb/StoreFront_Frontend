@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
-import Dashboard from './Components/dashboard/dashboard.component';
+import { createBrowserHistory } from 'history'
+import Navbar from './Components/navbar/navbar.component';
+// import LoginForm from './Components/LoginForm';
+
 
 class AppRoute extends Component {
 
     render() {
-        const history = createHistory();
+        const history = createBrowserHistory();
         return (
             <Router history={history}>
-                <Route path="/" component={Dashboard}/>
+                <Route path="/" render={(routerProps) => <Navbar {...routerProps} handleUserState={this.props.handleUserState} />} />
             </Router>
         );
     }

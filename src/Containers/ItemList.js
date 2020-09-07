@@ -7,10 +7,7 @@ const ItemList =(props)=>{
     
     const displayItems = () =>{
        
-       return props.items.map(itemObj => (
-           
-       <ItemCard key={itemObj.id} name={itemObj.name} cost={itemObj.cost} img={itemObj.img_url} id={itemObj.id} addToCart ={props.addToCart} />
-       ))
+       return props.items.map(itemObj =>  <ItemCard key={itemObj.id} name={itemObj.name} cost={itemObj.cost} img={itemObj.img_url} id={itemObj.id} addToCart ={props.addToCart} />)
     }
 
 
@@ -26,14 +23,10 @@ const ItemList =(props)=>{
 
 
 
-
-
-
-
 }
 
 export default ItemList
 
 ItemList.defaultProps= {
-    styling: undefined
+    styling: "main"
 }
