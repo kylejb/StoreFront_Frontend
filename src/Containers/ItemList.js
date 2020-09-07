@@ -3,7 +3,6 @@ import ItemCard from '../Components/ItemCard'
 
 
 const ItemList = ( props ) => {
-    console.log("i'm inside itemlist, the following is match.url",  props.url)
     console.log("i'm inside itemlist, the following is props",  props)
 
     const displayItems = () => {
@@ -18,4 +17,4 @@ const ItemList = ( props ) => {
     );
 }
 
-export default ItemList
+export default ItemList;
