@@ -14,12 +14,15 @@ class ItemCard extends React.Component{
         // );
     }
 
-    addToCart =()=>{
+    addToCartHelper = ( e ) => {
+        e.preventDefault();
         console.log(this.props.name, "was added to cart")
+        this.props.addToCart(this.props);
     }
     
 
     render(){
+        console.log("Rendering ItemCard", this.props)
         return(
             
 
@@ -27,7 +30,7 @@ class ItemCard extends React.Component{
         <Link key={this.props.id} to ={`/items/${this.props.id}`}>
         {/* {this.seeMore} */}
         <img src={this.props.img} alt={this.props.name} className="product-image"  />
-        <button  onClick={this.addToCart}>Add to Cart {"🛒"}</button>
+        <button onClick={this.addToCartHelper}>Add to Cart {"🛒"}</button>
         </Link>
         <h2>{this.props.name}</h2>
        
