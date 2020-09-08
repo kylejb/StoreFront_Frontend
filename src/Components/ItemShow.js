@@ -31,7 +31,7 @@ const ItemShow = (props) => {
         
             <div>
               <h1> Recommended Items </h1>
-              <ItemList items={recommendedItems} styling={"gallery"} addToCart ={props.addToCart}/> 
+              <ItemList items={recommendedItems} styling={"gallery"} addToCart={props.addToCart}/> 
             </div>
         </>
 

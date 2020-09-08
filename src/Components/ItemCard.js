@@ -22,7 +22,6 @@ class ItemCard extends React.Component{
     
 
     render(){
-        console.log("Rendering ItemCard", this.props)
         return(
             
 
