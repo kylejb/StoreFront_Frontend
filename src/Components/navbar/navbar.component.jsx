@@ -4,6 +4,10 @@ import { NavLink } from 'react-router-dom';
 
 class Dashboard extends Component {
     
+    currentUser = () => {
+        return ((this.props.user && this.props.user.email) || "login")
+    }
+
     render() {
         return (
             <>
@@ -27,12 +31,12 @@ class Dashboard extends Component {
                         </NavLink>
                         <NavLink
                             className="nav-link"
-                            to="signin">
+                            to={this.currentUser}>
                             {" Login "}
                         </NavLink>
                     </nav>
                 </div>
-                <NavbarRouter handleUserState={this.props.handleUserState} />
+                <NavbarRouter handleUserState={this.props.handleUserState} user={this.props.user} />
             </>
         );
     }
