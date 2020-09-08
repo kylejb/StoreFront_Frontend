@@ -10,9 +10,8 @@ class AppRoute extends Component {
     render() {
         const history = createBrowserHistory();
         return (
-            <Router history={history}>
                 <Route path="/" render={(routerProps) => <Navbar {...routerProps} handleUserState={this.props.handleUserState} />} />
-            </Router>
+            
         );
     }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import ItemList from './ItemList'
 import { Route, Switch } from "react-router-dom"
 import ItemShow from '../Components/ItemShow'
+import CartMenu from '../Components/cartMenu/cartMenu'
 // import Cart from '../Components/Cart';
 
 const API = 'http://localhost:3000/'
@@ -33,7 +34,7 @@ class ItemsContainer extends React.Component {
         console.log("handleAddToCart in ItemsContainer... arg is: ", selectedProduct);
         // cart testing (see code/comments below for ideas to make cart more robust)
         let newCartArray = [...this.state.cart, selectedProduct];
-        this.setState({ cart: newCartArray }, () => console.log("ItemsContainer CartState: ", this.state.cart));
+        this.setState({ ...this.state, cart: newCartArray }, () => console.log("ItemsContainer CartState: ", this.state.cart));
 
         //? we need to set a quantity prop/state to cart mechanism to streamline cart display
         /* 
@@ -57,14 +58,16 @@ class ItemsContainer extends React.Component {
 
     //? Should be moved to ItemsList (-@kylejb)
     render(){
-         
+         console.log("i'm checking to see if something is getting added to the cart",this.state.cart)
         return(
-            
+            <>
+            <CartMenu  cart={this.state.cart}  />
                 <div className="grid-container">
                     <Route  path={`/items/:itemId`} render={routerProps => <ItemShow {...routerProps} items={this.state.items} addToCart={this.handleAddToCart} /> }/>
                     <Route exact path="/items" render={routerProps => <ItemList {...routerProps} items={this.state.items} addToCart={this.handleAddToCart}/> }/>
                  </div>
                 
+            </>
                 
             
         )

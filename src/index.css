@@ -7,6 +7,7 @@ body,
 #root {
   height: 100vh;
   margin: 0;
+  text-align: center;
 }
 
 body, input, select, textarea {
@@ -85,11 +86,12 @@ a:hover {
 .card {
   text-align: center;
   padding: 2px;
-  width: 15rem;
+  width: 20rem;
   height: 30rem;
   display: inline-grid;
   margin: 0rem 2rem;
-  padding-bottom:10%;
+  margin-bottom:10%;
+  
 }
 
 
@@ -149,14 +151,15 @@ button:hover {
 
 .product-image {
   justify-self: center;
-  height: 200px;
-  width: 100%;
+  max-height: 200px;
+  max-width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,6.2);
 }
 
 .gallery{
   display: -webkit-flex;
+  /* grid-template-rows: none; */
   height: 100%;
-  background-color: purple;
   -webkit-align-items: flex-end;
   -webkit-justify-content: center;
 }
@@ -169,6 +172,7 @@ button:hover {
   height: 50%;
   display: inline-grid;
   margin: 0rem 2rem;
+  border: none;
 }
 
 .itemDisplay{
@@ -188,10 +192,11 @@ button:hover {
 }
 .card-image{
   position: relative;
+  
 }
 .corner-button {
   position: absolute;
-   top: 0;
+   bottom: 0;
    right: 0;
  background-color: transparent;
  font-size: 15px;
@@ -211,3 +216,77 @@ border: none;
  opacity:200%;
  font-size:20px;
 }
+
+.swag{
+  background-color: green;
+}
+
+.card .title {
+  width: 10em; height: 10em; overflow-y: hidden;
+  text-overflow: ellipsis; white-space: prewrap;
+  
+}
+
+/* the following is the css for the sliding menus*/
+
+#container li {
+  margin-bottom: 10px;
+}
+
+#roundButton {
+  position: fixed;
+  right: 0;
+  top: 20px;
+  background-color: black;
+  margin-bottom: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 10px solid silver;
+  outline: none;
+  transition: transform .3s cubic-bezier(0, .52, 0, 1);
+  z-index: 1000;
+}
+
+#roundButton:hover{
+
+  cursor: pointer;
+  
+  transform: scale(1.2, 1.2);
+}
+
+#roundButton:active{
+  border-color: black;
+  background-color:silver;
+}
+/*  this is the css for the flyout menu */
+
+#cartMenu {
+  
+    width: 50vw;
+    height: 100vh;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate3d(150vw, 0, 0);
+    transition: transform .3s cubic-bezier(0, .52, 0, 1);
+    z-index: 1000;
+      
+}
+
+#cartMenu h2,ul,li {
+  color: silver;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+#cartMenu h2 a:hover {
+  text-decoration: underline;
+}       
+
+
+#cartMenu.show {
+  transform: translate3d(50vw, 0, 0);
+}  
+

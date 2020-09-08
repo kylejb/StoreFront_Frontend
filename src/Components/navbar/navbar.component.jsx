@@ -17,22 +17,22 @@ class Dashboard extends Component {
                         </NavLink>
                         <NavLink
                             className="nav-link"
-                            to="transactions">
+                            to="/transactions">
                             {" Transactions "}
                         </NavLink>
                         <NavLink
                             className="nav-link"
-                            to="cart">
+                            to="/cart">
                             {" Cart "}
                         </NavLink>
                         <NavLink
                             className="nav-link"
-                            to="signin">
+                            to="/signin">
                             {" Login "}
                         </NavLink>
                     </nav>
                 </div>
-                <NavbarRouter handleUserState={this.props.handleUserState} />
+                {/* <NavbarRouter handleUserState={this.props.handleUserState} /> */}
             </>
         );
     }
