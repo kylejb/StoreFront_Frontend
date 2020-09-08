@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavbarRouter from './navbar.routes';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 class Dashboard extends Component {
     
@@ -25,8 +25,9 @@ class Dashboard extends Component {
                             {" Transactions "}
                         </NavLink>
                         <NavLink
+                            tag={Link}
                             className="nav-link"
-                            to="cart">
+                            to="/items/cart">
                             {" Cart "}
                         </NavLink>
                         <NavLink
