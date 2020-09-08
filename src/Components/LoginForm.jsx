@@ -6,12 +6,28 @@ const LoginForm = ( props ) => {
         [passwordConfirmation, setPasswordConfirmation] = useState("");
         
         
-    const handleSubmitHelper = (e) => {
+    const handleSubmitHelper = async (e) => {
         e.preventDefault();
-        props.handleUserState({email: email, password: password})
+
+        let currentUserObj = { 
+            email: email,
+            password: password
+        }
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({ user: currentUserObj })
+        };
+        let response = await fetch("http://localhost:3000/api/v1/login", options);
+        let data = await response.json();
+        props.handleUserState(data.user, data.jwt)
     }
 
-
+    console.log("Login Form ", props)
     return (
         <>
             <h2>LoginForm</h2>
