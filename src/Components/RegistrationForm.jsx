@@ -11,6 +11,26 @@ const RegistrationForm = ( props ) => {
         props.handleSubmit({email: email, password: password})
     }
 
+    //* this form will be refactored after login functionality
+    // handleRegistrationForm = async (newUserObj) => {
+    //     console.log("Create New User Here", newUserObj)
+
+    //     const options = {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Accept': 'application/json',
+    //         },
+    //         body: JSON.stringify({ user: newUserObj })
+    //     };
+
+    //     let response = await fetch("http://localhost:3000/api/v1/users", options);
+    //     let data = await response.json();
+    //     console.log("handleRegistrationForm Fetch Response: ", data);
+    //     let newState = {...this.state}; newState.currentUser = data.user; newState.token = data.jwt;
+    //     this.setState({newState});
+    // }
+
 
     return (
         <>
