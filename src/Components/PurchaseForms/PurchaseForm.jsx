@@ -11,6 +11,7 @@ const PurchaseForm = ( props ) => {
     //* ... as we would only require information such as item id number and quantity from the frontend... in order to build up the purchaseObj on the backend via Items table.
     const handleSubmitHelper = (e, purchaseObj) => {
         e.preventDefault();
+        console.log("Buying stuff in PurchaseForm")
         // props.handlePurchase(purchaseObj)
     };
     
@@ -30,33 +31,38 @@ const PurchaseForm = ( props ) => {
         }));
     };
 
-
+    console.log("Rendering PurchaseForm", props)
     //* We should consider splitting this form out to several pages... page 1, shipping.... page 2, billing... page 3, order confirmation list/receipt and "place order" button
     //* In the interim, I am creating a folder to be potentially used for purchaseform.components
     return (
         <>
             <h3>[DRAFT] PurchaseForm</h3>            
             <form onSubmit={handleSubmitHelper}>
-                {/* Page 1 - Shipping Address Info Below */}
-                <input type="text" placeholder="Address Line 1" name="addressLine1" value={shippingAddress.addressLine1} onChange={handleShippingAddressChange} />
-                <input type="text" placeholder="Address Line 2" name="addressLine2" value={shippingAddress.addressLine2} onChange={handleShippingAddressChange} />
-                <input type="text" placeholder="City" name="city" value={shippingAddress.city} onChange={handleShippingAddressChange} />
-                <input type="text" placeholder="State" name="state" value={shippingAddress.state} onChange={handleShippingAddressChange} />
-                <input type="text" placeholder="Zipcode" name="zipcode" value={shippingAddress.zipcode} onChange={handleShippingAddressChange} />
+
+                <div>
+                    {/* Shipping Address Info Below */}
+                    <input type="text" placeholder="Shipping Address Line 1" name="addressLine1" value={shippingAddress.addressLine1} onChange={handleShippingAddressChange} />
+                    <input type="text" placeholder="Shipping Address Line 2" name="addressLine2" value={shippingAddress.addressLine2} onChange={handleShippingAddressChange} />
+                    <input type="text" placeholder="City" name="city" value={shippingAddress.city} onChange={handleShippingAddressChange} />
+                    <input type="text" placeholder="State" name="state" value={shippingAddress.state} onChange={handleShippingAddressChange} />
+                    <input type="text" placeholder="Zipcode" name="zipcode" value={shippingAddress.zipcode} onChange={handleShippingAddressChange} />
+                </div>
 
 
-                {/* Page 2 - Billing Address Info Below */}
-                <input type="text" placeholder="Address Line 1" name="addressLine1" value={billingAddress.addressLine1} onChange={handleBillingAddressChange} />
-                <input type="text" placeholder="Address Line 2" name="addressLine2" value={billingAddress.addressLine2} onChange={handleBillingAddressChange} />
-                <input type="text" placeholder="City" name="city" value={billingAddress.city} onChange={handleBillingAddressChange} />
-                <input type="text" placeholder="State" name="state" value={billingAddress.state} onChange={handleBillingAddressChange} />
-                <input type="text" placeholder="Zipcode" name="zipcode" value={billingAddress.zipcode} onChange={handleBillingAddressChange} />
-                {/* Page 2 - Credit Card Inputs Below */}
+                <div>
+                    {/* Billing Address Info Below */}
+                    <input type="text" placeholder="Billing Address Line 1" name="addressLine1" value={billingAddress.addressLine1} onChange={handleBillingAddressChange} />
+                    <input type="text" placeholder="Billing Address Line 2" name="addressLine2" value={billingAddress.addressLine2} onChange={handleBillingAddressChange} />
+                    <input type="text" placeholder="City" name="city" value={billingAddress.city} onChange={handleBillingAddressChange} />
+                    <input type="text" placeholder="State" name="state" value={billingAddress.state} onChange={handleBillingAddressChange} />
+                    <input type="text" placeholder="Zipcode" name="zipcode" value={billingAddress.zipcode} onChange={handleBillingAddressChange} />
+                </div>
 
+                <div>
+                    {/* Credit Card Inputs will be rendered below in later revision; for MVP, we can assume static number on backend and make dynamic when revising... would like to secure communication between servers when implementing this feature */}
+                </div>
 
-                {/* Page 3 - Shopping Cart Info Below */}
-
-                <input type="submit" value="Order" />
+                <input type="submit" value="Place Order" />
             </form>
         </>
     );
