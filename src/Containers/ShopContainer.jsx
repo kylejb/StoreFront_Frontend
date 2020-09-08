@@ -38,10 +38,12 @@ class ShopContainer extends Component {
    
 
     render() {
+        console.log("Render ShopContainer (state) is: ", this.state);
+
         return (
             <>
                 <h4>Shop Container</h4>
-                <Cart cart={this.state.cart} user={this.props.user} token={this.props.token} />
+                <Route exact path="/items/cart" render={() => <Cart cart={this.state.cart} user={this.props.user} token={this.props.token} />} />
                 <ItemsContainer addToCart={this.handleAddToCart} />
             </>
         );
