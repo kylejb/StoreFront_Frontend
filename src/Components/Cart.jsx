@@ -2,11 +2,8 @@ import React, { Component }  from 'react';
 
 class Cart extends Component {
 
-    state = {
-        forCheckOut: []
-    };
-
     render() {
+        console.log("Cart Props ", this.props)
         return (
             <h2>Cart</h2>
         );
