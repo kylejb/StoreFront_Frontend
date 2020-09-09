@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import PurchaseForm from './PurchaseForms/PurchaseForm'
 
-class Cart extends Component {
+class Checkout extends Component {
 
     state = {
         showForm: false
@@ -25,4 +25,4 @@ class Cart extends Component {
      };
 }
 
-export default Cart;
+export default Checkout;

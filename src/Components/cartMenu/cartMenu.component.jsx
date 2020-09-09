@@ -1,0 +1,1 @@
+// our component cart  that shows each little item in a cart

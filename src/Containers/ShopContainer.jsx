@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import ItemsContainer from './ItemsContainer';
-import Cart from '../Components/Cart';
+import Checkout from '../Components/Checkout';
 
 
 class ShopContainer extends Component {
@@ -44,7 +44,7 @@ class ShopContainer extends Component {
             <>
 
                 <h4>Shop Container</h4>
-                <Route exact path="/cart" render={() => <Cart cart={this.state.cart} user={this.props.user} token={this.props.token} />} />
+                <Route exact path="/checkout" render={() => <Checkout cart={this.state.cart} user={this.props.user} token={this.props.token} />} />
                 <ItemsContainer addToCart={this.handleAddToCart}  cart={this.state.cart}/>
             </>
         );

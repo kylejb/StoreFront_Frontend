@@ -67,7 +67,7 @@ class CartMenu extends React.Component{
                                 
                                 {this.props.cart.map(this.displayCartItem)}
                                 
-                                <Link to="/cart" key="quick-cart-button">
+                                <Link to="/checkout" key="quick-cart-button">
                                     <button ><strong>View Cart and Checkout</strong></button>
                                 </Link>
 

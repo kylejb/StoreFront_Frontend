@@ -15,7 +15,7 @@ const PurchaseForm = ( props ) => {
                 'Accept': 'application/json',
                 'Authorization': `bearer ${props.token}`
             },
-            body: JSON.stringify( { payment: { order: [{cart: props.cart, shipping: shippingAddress, billing: billingAddress }] }})
+            body: JSON.stringify( { payment: { order: [{cart: props.cart, shipping: shippingAddress, billing: billingAddress, total: "total written here"}] }})
         };
         let response = await fetch("http://localhost:3000/api/v1/payments", options);
         let data = await response.json();
