@@ -11,7 +11,7 @@ class ItemsContainer extends React.Component {
     constructor(){
         super()
         this.state={
-            items: [{"id":1,"name":"Name1","img_url":"http://lorempixel.com/402/200/","cost":1.0,"description":"Description1","created_at":"2020-09-04T07:43:30.877Z","updated_at":"2020-09-04T07:43:30.877Z","category":"CategoryKids"}],
+            items: [],
             cart:[]
               
         }
@@ -62,7 +62,7 @@ class ItemsContainer extends React.Component {
         return(
             <>
             <CartMenu  cart={this.state.cart}  />
-            <Route path="/" render={(routerProps) => <MainPageContainer {...routerProps} />} />
+            <Route exact path="/" render={(routerProps) => <MainPageContainer {...routerProps} items={this.state.items} addToCart={this.handleAddToCart} />} />
                 <div className="grid-container">
                     <Route  path={`/items/:itemId`} render={routerProps => <ItemShow {...routerProps} items={this.state.items} addToCart={this.handleAddToCart} /> }/>
                     <Route exact path="/items" render={routerProps => <ItemList {...routerProps} items={this.state.items} addToCart={this.handleAddToCart}/> }/>

@@ -1,6 +1,7 @@
 import React from 'react'
 import Slider from 'infinite-react-carousel';
 import FeaturedItemDisplay from '../../Components/Main Page/FeaturedItemDisplay'
+import ItemList from '../ItemList'
 
 
 class MainPageContainer extends React.Component{
@@ -19,7 +20,7 @@ class MainPageContainer extends React.Component{
         }
     }
 
-    renderFavoriteItems = ()=>{
+    renderFeaturedItems = ()=>{
         return this.state.featuredItems.map(itemObj => <FeaturedItemDisplay key={itemObj.id} name={itemObj.name} img={itemObj.img_url} description={itemObj.description} id={itemObj.id}/>)
     }
 
@@ -28,23 +29,16 @@ class MainPageContainer extends React.Component{
     randomlySelectItems = () =>{
 
 
-         renderPage=()=>{
-            if (this.state.featuredItems[0]){
-              const randomNumber = Math.floor(Math.random()*(props.items.length-50))
-              const randomItems = this.state.featuredItems.slice(randomNumber,5)
-            
+         
+            if (this.props.items[0]){
+              const randomNumber = Math.floor(Math.random()*(this.props.items.length-5))
+              const randomItems = this.props.items.slice(randomNumber,randomNumber+5)
+              console.log("i am inside the random generator method",randomNumber, randomItems )
 
-            
-            return (
-            <>
-              <h2> Featured Items</h2>
-              
-                  <ItemList items={randomItems}  addToCart ={props.addToCart}/> 
-                  
-            </>
-            )
-    }
-}
+            return  <ItemList items={randomItems}  addToCart ={this.props.addToCart}/> 
+            }
+    
+         }
 
 
 
@@ -59,13 +53,19 @@ class MainPageContainer extends React.Component{
 <div>
         <h2>New Arrivals</h2>
         <Slider { ...settings }>
-            
-            {this.renderFavoriteItems() }
-
-
-
+            {this.renderFeaturedItems() }
         </Slider>
+
+
+
+        <h2> Featured Items</h2>
+            {this.randomlySelectItems()}
+
+
       </div>
+
+
+
 
             
         )

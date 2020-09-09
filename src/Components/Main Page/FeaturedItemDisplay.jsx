@@ -12,12 +12,12 @@ const FeaturedItemDisplay = (props) =>{
 return(
 
     <Link to={`/items/${props.id}/`} key={props.id} >
-        <div classNameName="mainPage-container">
+        <div className="mainPage-container">
                          <div className="mainPageImage">
-                             <img src={props.img} />
+                             <img src={props.img} alt={props.name}/>
                          </div>
                     
-                         <div classNameName="mainPage-column">
+                         <div className="mainPage-column">
                              <div>{props.name}</div>
                              <div>{props.description}</div>
                         </div>
