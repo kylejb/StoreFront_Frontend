@@ -12,7 +12,7 @@ class NavbarRouter extends Component {
         return (
             <div>
                 <Route path="/orders" component={Orders} />
-                <Route path="/transactions" component={Transactions} />
+                {/* <Route path="/items" component={Transactions} /> */}
                 <Route path="/login" render={(routerProps) => <LoginForm {...routerProps} handleUserState={this.props.handleUserState} />} />
             </div>
         );
