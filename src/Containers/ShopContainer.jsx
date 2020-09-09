@@ -44,8 +44,8 @@ class ShopContainer extends Component {
             <>
 
                 <h4>Shop Container</h4>
-                <Route exact path="/items/cart" render={() => <Cart cart={this.state.cart} user={this.props.user} token={this.props.token} />} />
-                <ItemsContainer addToCart={this.handleAddToCart} />
+                <Route exact path="/cart" render={() => <Cart cart={this.state.cart} user={this.props.user} token={this.props.token} />} />
+                <ItemsContainer addToCart={this.handleAddToCart}  cart={this.state.cart}/>
             </>
         );
     }

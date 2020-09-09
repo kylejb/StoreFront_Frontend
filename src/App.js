@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AppRoute from './app.routes';
+import ShopContainer from './Containers/ShopContainer';
 
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
   return (
     <div className="App">
       <AppRoute handleUserState={setAppState} user={user} token={token} /> 
+      <ShopContainer user={user} token={token} />
     </div>
   );
 }

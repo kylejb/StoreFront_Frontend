@@ -21,14 +21,15 @@ class CartMenu extends React.Component{
 
 
         displayCartItem=(itemObj)=>{
-            console.log(itemObj)
+
+
         return(
 
             <div className="cart-item">
                 <div className="image">
                     <img src={itemObj.img} />
                 </div>
-                <div class="column">
+                <div className="column">
                     <div>
                         Name: {itemObj.name}
                     </div>
