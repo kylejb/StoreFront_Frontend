@@ -413,5 +413,6 @@ border: red solid 10px;
 </html> */
  
 .mainPageImage img{
-  width: 50vw;
+max-width: 50vw;
+  height: 10vh;
 }

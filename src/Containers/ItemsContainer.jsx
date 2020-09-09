@@ -59,7 +59,6 @@ class ItemsContainer extends React.Component {
 
     //? Should be moved to ItemsList (-@kylejb)
     render(){
-         console.log("i'm checking to see if something is getting added to the cart",this.state.cart)
         return(
             <>
             <CartMenu  cart={this.state.cart}  />

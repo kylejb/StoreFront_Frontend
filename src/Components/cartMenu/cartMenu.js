@@ -86,7 +86,8 @@ class CartMenu extends React.Component{
     render(){
     return(
     <>
-        <button id="roundButton" onClick={this.mouseChange}></button>
+        <button id="roundButton" onClick={this.mouseChange}>{this.props.cart.length}</button>
+        
         <div className={this.state.clickStatus} id="cartMenu" onMouseLeave={this.mouseChange}>
             <h2>My Shopping Cart</h2>
             <ul>
