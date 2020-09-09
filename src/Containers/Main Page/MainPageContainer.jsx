@@ -35,7 +35,7 @@ class MainPageContainer extends React.Component{
               const randomItems = this.props.items.slice(randomNumber,randomNumber+5)
               console.log("i am inside the random generator method",randomNumber, randomItems )
 
-            return  <ItemList items={randomItems}  addToCart ={this.props.addToCart}/> 
+            return  <ItemList items={randomItems}  addToCart={this.props.addToCart}/> 
             }
     
          }

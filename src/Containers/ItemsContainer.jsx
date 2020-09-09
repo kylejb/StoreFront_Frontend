@@ -38,7 +38,7 @@ class ItemsContainer extends React.Component {
         return(
             <>
             <CartMenu  cart={this.props.cart}  />
-            <Route exact path="/" render={(routerProps) => <MainPageContainer {...routerProps} items={this.state.items} addToCart={this.handleAddToCart} />} />
+            <Route exact path="/" render={(routerProps) => <MainPageContainer {...routerProps} items={this.state.items} addToCart={this.props.addToCart} />} />
                 <div className="grid-container">
                     <Route  path={`/items/:itemId`} render={routerProps => <ItemShow {...routerProps} items={this.state.items} addToCart={this.props.addToCart} />} />
                     <Route  exact path="/items" render={routerProps => <ItemList {...routerProps} items={this.state.items} addToCart={this.props.addToCart} />} />

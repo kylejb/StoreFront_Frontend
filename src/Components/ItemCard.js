@@ -29,9 +29,9 @@ class ItemCard extends React.Component{
         <div className="card-image">
 
             <Link key={this.props.id} to ={`/items/${this.props.id}`}>
-                <img src={this.props.img} alt={this.props.name} className="product-image"  />
+                <img src={this.props.img} alt={this.props.name} className="product-image" />
             </Link>
-            <button  className="corner-button" onClick={this.addToCart}>🛒</button>
+            <button className="corner-button" onClick={this.addToCart}>🛒</button>
         </div>
         <button  onClick={this.addToCartHelper}>Add to Cart {"🛒"}</button>
         <div className="title">

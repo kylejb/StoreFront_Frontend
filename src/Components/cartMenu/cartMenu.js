@@ -1,13 +1,14 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import CartMenuPart from './cartMenu.component';
 
 class CartMenu extends React.Component{
     constructor(){
         super()
         this.state=({
             clickStatus: undefined
-        })
-        }
+        });
+    }
 
         mouseChange = () =>{
             let status = this.state.clickStatus
@@ -18,90 +19,44 @@ class CartMenu extends React.Component{
             })
         }
     
-
-
-        displayCartItem=(itemObj)=>{
-
-
-        return(
-
-            <div className="cart-item">
-                <div className="image">
-                    <img src={itemObj.img} />
-                </div>
-                <div className="column">
-                    <div>
-                        Name: {itemObj.name}
-                    </div>
-                    <div>
-                        Price: ${itemObj.cost}
-                    </div>
-                    <div>
-                        Quanity: 1
-                    </div>
-                </div>
-                
-                
-             </div> 
-    
-       
-    
-        )
-        }
-
-
-
-
-
-
-
-
-
-
+        displayCartItem = ( itemObj => <CartMenuPart item={itemObj} />)
 
         displayCart =() =>{
             if(this.props.cart[0]){
                 return(
-                            <div  style={{width:"100%"}}>
-                                
-                                
-                                {this.props.cart.map(this.displayCartItem)}
-                                
-                                <Link to="/checkout" key="quick-cart-button">
-                                    <button ><strong>View Cart and Checkout</strong></button>
-                                </Link>
-
-                            </div>
+                    <div style={{width:"100%"}}>
+                        {this.props.cart.map(this.displayCartItem)}
+                        
+                        <Link to="/checkout" key="quick-cart-button">
+                            <button ><strong>View Cart and Checkout</strong></button>
+                        </Link>
+                    </div>
                 )
-            }else{
+            } else {
                 return(
                     <>
-                <p> Cart is Empty</p>
-                <img src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG4.png" style={{width:"100%"}} />
-                </>
+                        <p> Cart is Empty</p>
+                        <img src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG4.png" style={{width:"100%"}} />
+                    </>
                 )
             }
         }
 
 
     render(){
-    return(
-    <>
-        <button id="roundButton" onClick={this.mouseChange}>{this.props.cart.length}</button>
-        
-        <div className={this.state.clickStatus} id="cartMenu" onMouseLeave={this.mouseChange}>
-            <h2>My Shopping Cart</h2>
-            <ul>
-                {this.displayCart()}
+        return(
+            <>
+                <button id="roundButton" onClick={this.mouseChange}>{this.props.cart.length}</button>
                 
-
-            </ul>
-           
-        </div>
-    </>
-    )
+                <div className={this.state.clickStatus} id="cartMenu" onMouseLeave={this.mouseChange}>
+                    <h2>My Shopping Cart</h2>
+                    <ul>
+                        {this.displayCart()}  
+                    </ul>  
+                </div>
+            </>
+        )
     }
 }
-
 
 export default CartMenu;
