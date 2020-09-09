@@ -17,7 +17,7 @@ class Dashboard extends Component {
                         <NavLink 
                             className="nav-link"
                             to="orders">
-                            { "Orders " } 
+                            {" Orders "} 
                         </NavLink>
                         <NavLink
                             className="nav-link"
