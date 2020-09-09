@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 
 const PurchaseForm = ( props ) => {
 
-    const [billingAddress, setBillingAddress] = useState({ first_addressline1: "", second_addressline2: "", city: "", state: "", zipcode: ""}),
-        [shippingAddress, setShippingAddress] = useState({ first_addressline1: "", second_addressline2: "", city: "", state: "", zipcode: ""});       
+    const [billingAddress, setBillingAddress] = useState({ first_addressline: "", second_addressline: "", city: "", state: "", zipcode: ""}),
+        [shippingAddress, setShippingAddress] = useState({ first_addressline: "", second_addressline: "", city: "", state: "", zipcode: ""});       
     
 
     const makePayment = async () => {
@@ -50,8 +50,8 @@ const PurchaseForm = ( props ) => {
 
                 <div>
                     {/* Shipping Address Info Below */}
-                    <input type="text" placeholder="Shipping Address Line 1" name="first_addressline1" value={shippingAddress.first_addressline1} onChange={handleShippingAddressChange} />
-                    <input type="text" placeholder="Shipping Address Line 2" name="second_addressline2" value={shippingAddress.second_addressline2} onChange={handleShippingAddressChange} />
+                    <input type="text" placeholder="Shipping Address Line 1" name="first_addressline" value={shippingAddress.first_addressline} onChange={handleShippingAddressChange} />
+                    <input type="text" placeholder="Shipping Address Line 2" name="second_addressline" value={shippingAddress.second_addressline} onChange={handleShippingAddressChange} />
                     <input type="text" placeholder="City" name="city" value={shippingAddress.city} onChange={handleShippingAddressChange} />
                     <input type="text" placeholder="State" name="state" value={shippingAddress.state} onChange={handleShippingAddressChange} />
                     <input type="text" placeholder="Zipcode" name="zipcode" value={shippingAddress.zipcode} onChange={handleShippingAddressChange} />
@@ -59,8 +59,8 @@ const PurchaseForm = ( props ) => {
 
                 <div>
                     {/* Billing Address Info Below */}
-                    <input type="text" placeholder="Billing Address Line 1" name="first_addressline1" value={billingAddress.first_addressline1} onChange={handleBillingAddressChange} />
-                    <input type="text" placeholder="Billing Address Line 2" name="second_addressline2" value={billingAddress.second_addressline2} onChange={handleBillingAddressChange} />
+                    <input type="text" placeholder="Billing Address Line 1" name="first_addressline" value={billingAddress.first_addressline} onChange={handleBillingAddressChange} />
+                    <input type="text" placeholder="Billing Address Line 2" name="second_addressline" value={billingAddress.second_addressline} onChange={handleBillingAddressChange} />
                     <input type="text" placeholder="City" name="city" value={billingAddress.city} onChange={handleBillingAddressChange} />
                     <input type="text" placeholder="State" name="state" value={billingAddress.state} onChange={handleBillingAddressChange} />
                     <input type="text" placeholder="Zipcode" name="zipcode" value={billingAddress.zipcode} onChange={handleBillingAddressChange} />
