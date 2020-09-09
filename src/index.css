@@ -139,13 +139,6 @@ button:hover {
   background: #515DA2;
   opacity: .8;
 }
-.fling-minislide img{ animation:fling-minislide 15s infinite; opacity:0;}
-
-@keyframes fling-minislide {25%{opacity:1;} 40%{opacity:0;}}
-
-.fling-minislide img:nth-child(3){animation-delay:0s;}
-.fling-minislide img:nth-child(2){animation-delay:5s;}
-.fling-minislide img:nth-child(1){animation-delay:10s;}
 
 
 
@@ -418,32 +411,7 @@ border: red solid 10px;
 
 </body>
 </html> */
-
-.parent {
-  display: grid;
-  grid-template-columns: repeat(3);
-  
-  grid-column-gap: 13px;
-  grid-row-gap: 0px;
-  }
-  .mainPage-container {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: 5vw 5vh vw;
-    grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 13px;
-  grid-row-gap: 0px;
-  border: red solid 10px;
-  }
-  
-  .mainPage-container > div {
-    text-align: center;
-    padding: 20px 0;
-    font-size: 30px;
-    width: 100%;
-    overflow: hidden;
-    overflow-wrap: anywhere;
-    
-    
-  }
+ 
+.mainPageImage img{
+  width: 50vw;
+}
