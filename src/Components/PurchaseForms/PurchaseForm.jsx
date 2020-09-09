@@ -6,13 +6,24 @@ const PurchaseForm = ( props ) => {
     const [billingAddress, setBillingAddress] = useState({ addressLine1: "", addressLine2: "", city: "", state: "", zipcode: ""}),
         [shippingAddress, setShippingAddress] = useState({ addressLine1: "", addressLine2: "", city: "", state: "", zipcode: ""});       
     
-    // in order to grab the required information for backend processing, this form should be a child of cart/items in order to extract the information for checking-out process.
-    //* Note: purchaseObj should be primarily reconstructed on the backend to confirm with Stripe API requirements; this will minimize the amount of data we need to transport back to the backend...
-    //* ... as we would only require information such as item id number and quantity from the frontend... in order to build up the purchaseObj on the backend via Items table.
-    const handleSubmitHelper = (e, purchaseObj) => {
+
+    const makePayment = async () => {
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify( { payment: { order: [ {cart: props.cart, shipping_address: shippingAddress, billing_address: billingAddress}] } })
+        };
+        let response = await fetch("http://localhost:3000/api/v1/payments", options);
+        let data = await response.json();
+        // console.log("makePayment... serverResponse ", data);
+    }
+
+    const handleSubmitHelper = (e) => {
         e.preventDefault();
-        console.log("Buying stuff in PurchaseForm")
-        // props.handlePurchase(purchaseObj)
+        makePayment();
     };
     
     const handleShippingAddressChange = (e) => {
@@ -31,9 +42,6 @@ const PurchaseForm = ( props ) => {
         }));
     };
 
-    console.log("Rendering PurchaseForm", props)
-    //* We should consider splitting this form out to several pages... page 1, shipping.... page 2, billing... page 3, order confirmation list/receipt and "place order" button
-    //* In the interim, I am creating a folder to be potentially used for purchaseform.components
     return (
         <>
             <h3>[DRAFT] PurchaseForm</h3>            
@@ -47,7 +55,6 @@ const PurchaseForm = ( props ) => {
                     <input type="text" placeholder="State" name="state" value={shippingAddress.state} onChange={handleShippingAddressChange} />
                     <input type="text" placeholder="Zipcode" name="zipcode" value={shippingAddress.zipcode} onChange={handleShippingAddressChange} />
                 </div>
-
 
                 <div>
                     {/* Billing Address Info Below */}
