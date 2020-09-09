@@ -8,6 +8,7 @@ const ItemShow = (props) => {
    let recommendedItems =  props.items.slice(0,5)
    
    const renderPage=()=>{
+
               if (item){
                 const randomNumber = Math.floor(Math.random()*(props.items.length-50))
                 const filteredItems = props.items.slice(randomNumber,50).filter(itemObj => itemObj.category === item.category)
@@ -41,6 +42,7 @@ const ItemShow = (props) => {
 
             );
               } else{return `the params ItemId is ${props.match.params.itemId}`}
+
 
   }
 

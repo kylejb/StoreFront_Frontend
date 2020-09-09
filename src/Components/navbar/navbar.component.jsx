@@ -4,6 +4,10 @@ import { NavLink } from 'react-router-dom';
 
 class Dashboard extends Component {
     
+    currentUser = () => {
+        return ((this.props.user && this.props.user.email) || "login")
+    }
+
     render() {
         return (
             <>
@@ -13,26 +17,32 @@ class Dashboard extends Component {
                         <NavLink 
                             className="nav-link"
                             to="orders">
-                            { "Orders " } 
+                            {" Orders "} 
                         </NavLink>
                         <NavLink
                             className="nav-link"
-                            to="/transactions">
-                            {" Transactions "}
+
+                            to="/items">
+                            {" Items "}
                         </NavLink>
                         <NavLink
                             className="nav-link"
-                            to="/cart">
+                            to="/items/cart">
+
                             {" Cart "}
                         </NavLink>
                         <NavLink
                             className="nav-link"
-                            to="/signin">
+
+                            to={this.currentUser}>
+
                             {" Login "}
                         </NavLink>
                     </nav>
                 </div>
-                {/* <NavbarRouter handleUserState={this.props.handleUserState} /> */}
+
+                <NavbarRouter handleUserState={this.props.handleUserState} user={this.props.user} />
+
             </>
         );
     }

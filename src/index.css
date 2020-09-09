@@ -62,26 +62,8 @@ footer {
 
 a:hover {
   color: orange;
-
 }
 
-
-/* 
-
-* Temp Repository for Unused CSS; attributes below may be useful above...
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-*/
 
 .card {
   text-align: center;
@@ -93,7 +75,6 @@ a:hover {
   margin-bottom:10%;
   
 }
-
 
 button {
   margin:2px;
@@ -114,18 +95,16 @@ button {
   text-align: center;
   padding: 1rem;
 }
-.button-container a button {
 
+.button-container a button {
   text-align: center;
   width: 50%;
   height: 50%;
   font-size: 75%;
   padding-bottom: 15px;
-
 }
 
 button:hover {
-  
   background-color: white;
   border: #e04b52 solid 1px;
   color: black;
@@ -140,8 +119,6 @@ button:hover {
   opacity: .8;
 }
 
-
-
 .product-image {
   justify-self: center;
   max-height: 200px;
@@ -149,14 +126,15 @@ button:hover {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,6.2);
 }
 
-.gallery{
+.gallery {
   display: -webkit-flex;
   /* grid-template-rows: none; */
   height: 100%;
   -webkit-align-items: flex-end;
+          align-items: flex-end;
   -webkit-justify-content: center;
+          justify-content: center;
 }
-
 
 .gallery > .card {
   text-align: center;
@@ -168,25 +146,28 @@ button:hover {
   border: none;
 }
 
-.itemDisplay{
+.itemDisplay {
   display: inline-flex;
   padding: 100px;
 }
-.itemDisplay button{
+
+.itemDisplay button {
   height:50px;
   background-color:blue;
 }
 
-.itemDisplay img{
+.itemDisplay img {
   padding-right: 100px;
   width: auto;
   max-height: 300px;
   max-width: 800px
 }
-.card-image{
+
+.card-image {
   position: relative;
   
 }
+
 .corner-button {
   position: absolute;
    bottom: 0;
@@ -209,6 +190,7 @@ border: none;
  opacity:200%;
  font-size:20px;
 }
+
 
 .swag{
   background-color: green;
@@ -416,3 +398,20 @@ border: red solid 10px;
 max-width: 50vw;
   height: 10vh;
 }
+
+
+/* 
+* Temp Repository for Unused CSS; attributes below may be useful above...
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+*/
+
