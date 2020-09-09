@@ -21,22 +21,28 @@ class Dashboard extends Component {
                         </NavLink>
                         <NavLink
                             className="nav-link"
+
                             to="/items">
                             {" Items "}
                         </NavLink>
                         <NavLink
                             className="nav-link"
                             to="/items/cart">
+
                             {" Cart "}
                         </NavLink>
                         <NavLink
                             className="nav-link"
+
                             to={this.currentUser}>
+
                             {" Login "}
                         </NavLink>
                     </nav>
                 </div>
+
                 <NavbarRouter handleUserState={this.props.handleUserState} user={this.props.user} />
+
             </>
         );
     }

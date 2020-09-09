@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-// import UserContainer from './UserContainer';
 import ItemsContainer from './ItemsContainer';
 import Cart from '../Components/Cart';
+
 
 class ShopContainer extends Component {
 
@@ -42,6 +42,7 @@ class ShopContainer extends Component {
 
         return (
             <>
+
                 <h4>Shop Container</h4>
                 <Route exact path="/items/cart" render={() => <Cart cart={this.state.cart} user={this.props.user} token={this.props.token} />} />
                 <ItemsContainer addToCart={this.handleAddToCart} />
