@@ -272,6 +272,7 @@ border: none;
     transform: translate3d(150vw, 0, 0);
     transition: transform .3s cubic-bezier(0, .52, 0, 1);
     z-index: 1000;
+    overflow: scroll;
       
 }
 
@@ -283,10 +284,166 @@ border: none;
 
 #cartMenu h2 a:hover {
   text-decoration: underline;
-}       
+}  
+#cartMenu button {
+  background-color:silver;
+
+  border: black solid 1px;
+  color:black;
+}     
 
 
 #cartMenu.show {
   transform: translate3d(50vw, 0, 0);
 }  
 
+/* the following is css for the cart item display */
+
+.cart-item {
+  display: flex;
+  width: 100%;
+  padding: 5px;
+}
+
+.column {
+  flex-direction: column;
+  margin-right: 10px;
+  flex: 1;
+  border: 2px solid silver;
+  max-width: 40vw;
+}
+
+.column div {
+  
+  font-size: 1.4rem;
+  padding: 5px 0;
+  
+}
+
+.cart-item .card {
+  margin-left: 10px
+}
+
+
+
+.image img {
+  display: block;
+  padding: 5px;
+  justify-self: center;
+  height: 10vh;
+  width: 10vw;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,6.2);
+}
+
+
+
+/* potential code to have main page display featured items
+ */
+/* 
+ <!DOCTYPE html>
+<html>
+<head>
+<style>
+.parent {
+display: grid;
+grid-template-columns: repeat(3);
+
+grid-column-gap: 13px;
+grid-row-gap: 0px;
+}
+.mainPage-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 5vw 5vh vw;
+  grid-template-columns: repeat(3, 1fr);
+grid-template-rows: 1fr;
+grid-column-gap: 13px;
+grid-row-gap: 0px;
+border: red solid 10px;
+}
+
+.mainPage-container > div {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+  width: 100%;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  
+  
+}
+</style>
+</head>
+<body>
+
+<h1>The justify-content Property</h1>
+
+<p>Use the <em>justify-content</em> property to align the grid inside the container.</p>
+
+<p>The value "space-around" will give the columns equal amount of space around them:</p>
+
+<div class="parent">
+
+<div class="mainPage-container">
+  <div class="image"><img src="http://lorempixel.com/702/200/"></div>
+  
+  <div class="column"><div>Name: Star Wars55</div><div>Price: $0.08</div></div>
+  
+  <div>Quanity: 1</div>
+  
+</div>
+
+<div class="mainPage-container">
+  <div class="image"><img src="http://lorempixel.com/702/200/"></div>
+  
+  <div class="column"><div>Name: Star Wars55</div><div>Price: $0.08</div></div>
+  
+  <div>Quanity: 1</div>
+  
+</div>
+<div class="mainPage-container">
+  <div class="image"><img src="http://lorempixel.com/702/200/"></div>
+  
+  <div class="column"><div>Name: Star Wars55</div><div>Price: $0.08</div></div>
+  
+  <div>Quanity: 1</div>
+  
+</div>
+
+
+
+
+</div>
+
+
+</body>
+</html> */
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(3);
+  
+  grid-column-gap: 13px;
+  grid-row-gap: 0px;
+  }
+  .mainPage-container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 5vw 5vh vw;
+    grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 13px;
+  grid-row-gap: 0px;
+  border: red solid 10px;
+  }
+  
+  .mainPage-container > div {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+    width: 100%;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    
+    
+  }

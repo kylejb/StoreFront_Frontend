@@ -3,6 +3,7 @@ import ItemList from './ItemList'
 import { Route, Switch } from "react-router-dom"
 import ItemShow from '../Components/ItemShow'
 import CartMenu from '../Components/cartMenu/cartMenu'
+import MainPageContainer from "./Main Page/MainPageContainer"
 // import Cart from '../Components/Cart';
 
 const API = 'http://localhost:3000/'
@@ -62,6 +63,7 @@ class ItemsContainer extends React.Component {
         return(
             <>
             <CartMenu  cart={this.state.cart}  />
+            <Route path="/" render={(routerProps) => <MainPageContainer {...routerProps} />} />
                 <div className="grid-container">
                     <Route  path={`/items/:itemId`} render={routerProps => <ItemShow {...routerProps} items={this.state.items} addToCart={this.handleAddToCart} /> }/>
                     <Route exact path="/items" render={routerProps => <ItemList {...routerProps} items={this.state.items} addToCart={this.handleAddToCart}/> }/>
