@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import { Router, Route } from 'react-router-dom';
-import { createBrowserHistory } from 'history'
+import { Route } from 'react-router-dom';
 import Navbar from './Components/navbar/navbar.component';
-// import LoginForm from './Components/LoginForm';
+import ShopContainer from './Containers/ShopContainer';
+// import { createBrowserHistory } from 'history'
 
 
 class AppRoute extends Component {
 
     render() {
-        const history = createBrowserHistory();
         return (
-            <Router history={history}>
-                <Route path="/" render={(routerProps) => <Navbar {...routerProps} handleUserState={this.props.handleUserState} />} />
-            </Router>
+
+            <>
+                <Route path="/" render={ (routerProps) => <Navbar {...routerProps} handleUserState={this.props.handleUserState} user={this.props.user} token={this.props.token} />} />
+                {/* <Route path="/items" render={ (routerProps) => <ShopContainer {...routerProps} user={this.props.user} token={this.props.token} />} /> */}
+            </>
+
         );
     }
 }
