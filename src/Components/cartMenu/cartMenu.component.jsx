@@ -1,1 +1,27 @@
-// our component cart  that shows each little item in a cart
+import React from 'react';
+
+const CartMenuPart = ( props ) => {
+
+    return (
+        <div className="cart-item">
+            <div className="image">
+                <img src={props.item.img} />
+            </div>
+            <div className="column">
+                <div>
+                    Name: {props.item.name}
+                </div>
+                <div>
+                    Price: ${props.item.cost}
+                </div>
+                <div>
+                    Quantity: {props.item.quantity}
+                </div>
+            </div>   
+            <button onClick={()=>props.addToCart(props.item,"remove")} >remove </button>
+            <button onClick={()=>props.addToCart(props.item,"remove")} >Delete Item </button>
+         </div> 
+    );
+}
+
+export default CartMenuPart;

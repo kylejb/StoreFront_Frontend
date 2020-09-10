@@ -11,11 +11,30 @@ class ShopContainer extends Component {
     }
 
     //* Add to Cart
-    handleAddToCart = ( selectedProduct ) => {
+    handleAddToCart = ( selectedProduct,change="add" ) => {
         console.log("handleAddToCart in ShopContainer... arg is: ", selectedProduct);
         //* cart testing (see code/comments below for ideas to make cart more robust)
-        let newCartArray = [...this.state.cart, selectedProduct];
-        this.setState({ cart: newCartArray }, () => console.log("ShopContainer CartState: ", this.state.cart));
+        // let newCartArray = [...this.state.cart, selectedProduct];
+        // this.setState({ cart: newCartArray }, () => console.log("ShopContainer CartState: ", this.state.cart));
+        let newCartArray = this.state.cart
+
+        let luis = this.state.cart.findIndex(itemObj=> itemObj.id === selectedProduct.id)
+        if (luis !==-1){
+            change === "add" ?   newCartArray[luis].quantity += 1 : newCartArray[luis].quantity -= 1
+
+            newCartArray[luis].quantity <1 ? newCartArray.splice(luis,1) : selectedProduct="beer"
+           
+
+
+        } else{
+          newCartArray = [...this.state.cart, {...selectedProduct,quantity:1}]
+        }
+
+       this.setState({ cart: newCartArray }, () => console.log("ShopContainer CartState: ", this.state.cart));
+
+
+
+
 
         //? do we need to set a quantity prop/state to cart mechanism to streamline cart display
         // below is a start for possible improvements to the cart... based on quantity to collapse list of items in cart
@@ -35,6 +54,10 @@ class ShopContainer extends Component {
         let cart = this.state.cart;
         return cart.some((item) => item.id === productId);
     }
+
+    calculateSubTotal = () =>{
+        return this.state.cart.map(item => item.cost*item.quantity).reduce((a,b)=>a+b,0).toFixed(2)
+    }
    
 
     render() {
@@ -44,8 +67,8 @@ class ShopContainer extends Component {
             <>
 
                 <h4>Shop Container</h4>
-                <Route exact path="/checkout" render={() => <Checkout cart={this.state.cart} user={this.props.user} token={this.props.token} />} />
-                <ItemsContainer addToCart={this.handleAddToCart}  cart={this.state.cart}/>
+                <Route exact path="/checkout" render={() => <Checkout cart={this.state.cart} total={this.calculateSubTotal} user={this.props.user} token={this.props.token} />} />
+                <ItemsContainer addToCart={this.handleAddToCart} cart={this.state.cart} total={this.calculateSubTotal}/>
             </>
         );
     }
