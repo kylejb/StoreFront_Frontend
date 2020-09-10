@@ -170,7 +170,7 @@ button:hover {
 
 .corner-button {
   position: absolute;
-   bottom: 0;
+   top: 0;
    right: 0;
  background-color: transparent;
  font-size: 15px;
@@ -185,6 +185,7 @@ button:hover {
 }
 
 .corner-button:hover {
+  right: 10px;
 background-color: transparent;
 border: none;
  opacity:200%;
@@ -223,7 +224,7 @@ border: none;
   z-index: 1000;
 }
 
-#roundButton:hover{
+#roundButton:hover, #roundButton text:hover{
 
   cursor: pointer;
   

@@ -19,13 +19,15 @@ class CartMenu extends React.Component{
             })
         }
     
-        displayCartItem = ( itemObj => <CartMenuPart item={itemObj} />)
+        displayCartItem = ( itemObj => <CartMenuPart item={itemObj}  addToCart = {this.props.addToCart}/>)
 
         displayCart =() =>{
             if(this.props.cart[0]){
                 return(
                     <div style={{width:"100%"}}>
                         {this.props.cart.map(this.displayCartItem)}
+
+                        <strong>Subtotal: ${this.props.total()}</strong>
                         
                         <Link to="/checkout" key="quick-cart-button">
                             <button ><strong>View Cart and Checkout</strong></button>
@@ -44,9 +46,10 @@ class CartMenu extends React.Component{
 
 
     render(){
+        
         return(
             <>
-                <button id="roundButton" onClick={this.mouseChange}>{this.props.cart.length}</button>
+                <button id="roundButton" onClick={this.mouseChange}>{this.props.cart.map(item => item.quantity).reduce((a,b)=>a+b,0)}</button>
                 
                 <div className={this.state.clickStatus} id="cartMenu" onMouseLeave={this.mouseChange}>
                     <h2>My Shopping Cart</h2>

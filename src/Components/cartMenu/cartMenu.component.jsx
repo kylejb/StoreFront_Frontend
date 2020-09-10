@@ -15,9 +15,11 @@ const CartMenuPart = ( props ) => {
                     Price: ${props.item.cost}
                 </div>
                 <div>
-                    Quanity: 1
+                    Quantity: {props.item.quantity}
                 </div>
             </div>   
+            <button onClick={()=>props.addToCart(props.item,"remove")} >remove </button>
+            <button onClick={()=>props.addToCart(props.item,"remove")} >Delete Item </button>
          </div> 
     );
 }
