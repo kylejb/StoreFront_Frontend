@@ -19,7 +19,7 @@ class CartMenu extends React.Component{
             })
         }
     
-        displayCartItem = ( itemObj => <CartMenuPart item={itemObj}  addToCart = {this.props.addToCart}/>)
+        displayCartItem = ( itemObj => <CartMenuPart item={itemObj}  addToCart={this.props.addToCart}/>)
 
         displayCart =() =>{
             if(this.props.cart[0]){
