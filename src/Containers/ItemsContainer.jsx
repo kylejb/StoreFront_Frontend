@@ -35,7 +35,6 @@ class ItemsContainer extends React.Component {
 
 
     render(){
-        
         return(
             <>
             <CartMenu  cart={this.props.cart} total={this.props.total}  addToCart={this.props.addToCart} />

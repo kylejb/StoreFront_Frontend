@@ -41,7 +41,7 @@ class Checkout extends Component {
 
 
                 <h3>Subtotal = ${this.props.total()}</h3>
-               {(this.props.total() >= 5) ?  (<button onClick={() => this.setState({ showForm: true })} value="Place Order" >Confirm Payment Details</button>) : null }
+               {(this.props.total() >= .5) ?  (<button onClick={() => this.setState({ showForm: true })} value="Place Order" >Confirm Payment Details</button>) : null }
                <Link to="/" key="back to shopping" ><button >Back to Shopping</button> </Link>
                 { this.state.showForm ? this.handleOrder() : null }
             </>

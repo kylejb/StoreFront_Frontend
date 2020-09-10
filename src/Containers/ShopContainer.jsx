@@ -68,7 +68,7 @@ class ShopContainer extends Component {
 
                 <h4>Shop Container</h4>
                 <Route exact path="/checkout" render={() => <Checkout cart={this.state.cart} total={this.calculateSubTotal} user={this.props.user} token={this.props.token} />} />
-                <ItemsContainer addToCart={this.handleAddToCart}  cart={this.state.cart} total={this.calculateSubTotal}/>
+                <ItemsContainer addToCart={this.handleAddToCart} cart={this.state.cart} total={this.calculateSubTotal}/>
             </>
         );
     }

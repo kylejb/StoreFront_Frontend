@@ -15,11 +15,11 @@ const PurchaseForm = ( props ) => {
                 'Accept': 'application/json',
                 'Authorization': `bearer ${props.token}`
             },
-            body: JSON.stringify( { payment: { order: [{cart: props.cart, shipping: shippingAddress, billing: billingAddress, total: parseInt(props.total)*100}] }})
+            body: JSON.stringify( { payment: { order: [{ cart: props.cart, shipping: shippingAddress, billing: billingAddress }], total: parseInt(props.total)*100 }})
         };
         let response = await fetch("http://localhost:3000/api/v1/payments", options);
         let data = await response.json();
-        // console.log("makePayment... serverResponse ", data);
+        console.log("makePayment... serverResponse ", data);
     }
 
     const handleSubmitHelper = (e) => {
