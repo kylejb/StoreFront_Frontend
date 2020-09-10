@@ -19,7 +19,7 @@ const CartMenuPart = ( props ) => {
                 </div>
             </div>   
             <button onClick={()=>props.addToCart(props.item,"remove")} >remove </button>
-            <button onClick={()=>props.addToCart(props.item,"remove")} >Delete Item </button>
+            <button onClick={()=>props.addToCart(props.item,"delete")} >Delete Item </button>
          </div> 
     );
 }
