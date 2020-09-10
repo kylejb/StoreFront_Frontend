@@ -11,18 +11,24 @@ class Checkout extends Component {
 
     handleOrder = () => {
         console.log("Cart: Clicking to go to order page")
-        return (<PurchaseForm cart={this.props.cart} token={this.props.token} />)
+        return (<PurchaseForm cart={this.props.cart} token={this.props.token} total={this.calculateGrandTotal(this.props.total())}/>)
     }
 
 
-
-
-    calculateSubTotal = () =>{
-        return this.props.cart.map(item => item.cost).reduce((a,b)=>a+b,0)
+    calculateGrandTotal=(subtotal)=>{
+        const shipping = 3.99
+        const taxes = (parseFloat(subtotal)+shipping) * 0.08875
+        const grandTotal=(parseFloat(this.props.total())+shipping+taxes).toFixed(2)
+        return grandTotal
     }
+
+  
 
     render() {
-        console.log("Cart Props ", this.props.cart,"this is the subtotal",this.props.total())
+        
+        
+        
+
         return (
             <>
               
