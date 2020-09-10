@@ -4,27 +4,11 @@ import React, { useState } from 'react';
 const PurchaseForm = ( props ) => {
 
     const [billingAddress, setBillingAddress] = useState({ first_addressline: "", second_addressline: "", city: "", state: "", zipcode: ""}),
-        [shippingAddress, setShippingAddress] = useState({ first_addressline: "", second_addressline: "", city: "", state: "", zipcode: ""});       
-    
-
-    const makePayment = async () => {
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': `bearer ${props.token}`
-            },
-            body: JSON.stringify( { payment: { order: [{ cart: props.cart, shipping: shippingAddress, billing: billingAddress }], total: parseInt(props.total)*100 }})
-        };
-        let response = await fetch("http://localhost:3000/api/v1/payments", options);
-        let data = await response.json();
-        console.log("makePayment... serverResponse ", data);
-    }
+        [shippingAddress, setShippingAddress] = useState({ first_addressline: "", second_addressline: "", city: "", state: "", zipcode: ""});   
 
     const handleSubmitHelper = (e) => {
         e.preventDefault();
-        makePayment();
+        props.makePayment(billingAddress, shippingAddress);
     };
     
     const handleShippingAddressChange = (e) => {

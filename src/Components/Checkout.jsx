@@ -6,12 +6,31 @@ import {Link} from 'react-router-dom'
 class Checkout extends Component {
 
     state = {
-        showForm: false
+        showForm: false,
+        redirects: false, 
+        prevOrder: [] 
+    }
+
+    makePayment = async (billingAddressObj, shippingAddressObj) => {
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `bearer ${this.props.token}`
+            },
+            body: JSON.stringify( { payment: { order: [{ cart: this.props.cart, shipping: shippingAddressObj, billing: billingAddressObj }], total: parseInt(this.calculateGrandTotal(this.props.total()))*100 }})
+        };
+        let response = await fetch("http://localhost:3000/api/v1/payments", options);
+        if (response.ok) { 
+            this.setState({redirects: true, prevOrder: this.props.cart});
+            this.props.clearCart();
+        };
+        // let data = await response.json();
     }
 
     handleOrder = () => {
-        console.log("Cart: Clicking to go to order page")
-        return (<PurchaseForm cart={this.props.cart} token={this.props.token} total={this.calculateGrandTotal(this.props.total())}/>)
+        return (<PurchaseForm cart={this.props.cart} token={this.props.token} makePayment={this.makePayment} total={this.calculateGrandTotal(this.props.total())}/>)
     }
 
 
@@ -22,31 +41,29 @@ class Checkout extends Component {
         return grandTotal
     }
 
-  
-
     render() {
-        
-        
-        
-
         return (
             <>
-              
-              {this.props.cart.map(itemObj  => <CartMenuPart key={itemObj.id} item={itemObj} />  )}
+                {!this.state.redirects ? 
+                <>
+                    {this.props.cart.map(itemObj  => <CartMenuPart key={itemObj.id} item={itemObj} />  )}
 
+                    <h2>Checkout Confirmation</h2>
 
-
-
-                <h2>Cart: checkout cart onClick...</h2>
-
-
-                <h3>Subtotal = ${this.props.total()}</h3>
-               {(this.props.total() >= .5) ?  (<button onClick={() => this.setState({ showForm: true })} value="Place Order" >Confirm Payment Details</button>) : null }
-               <Link to="/" key="back to shopping" ><button >Back to Shopping</button> </Link>
-                { this.state.showForm ? this.handleOrder() : null }
+                    <h3>Subtotal = ${this.props.total()}</h3>
+                    {(this.props.total() >= .5) ?  (<button onClick={() => this.setState({ showForm: true })} value="Place Order" >Confirm Payment Details</button>) : null }
+                    <Link to="/" key="back to shopping" ><button >Back to Shopping</button> </Link>
+                    { this.state.showForm ? this.handleOrder() : null }
+                </>
+                : 
+                <div>
+                {/* Order Confirmation Here */}
+                    <h3>Purchase Confirmation</h3>
+                    {this.state.prevOrder.map(itemObj  => <CartMenuPart key={itemObj.id} item={itemObj} />  )}
+                </div> }
             </>
-        );
-     };
+        );   
+    }
 }
 
 export default Checkout;
