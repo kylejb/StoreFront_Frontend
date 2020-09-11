@@ -19,14 +19,11 @@ class Dashboard extends Component {
         })
     }
 
-    logInOrOut=()=>{
-
-      return this.props.user ? ` Logout `: " "
-    }
     
     
-    currentUser = () => {
-        return ((this.props.user && this.props.user.email) || "login")
+    
+    logInOrOut = () => {
+        return (this.props.user? "/logout" : "/login")
     }
 
     render() {
@@ -68,23 +65,17 @@ class Dashboard extends Component {
                         </NavLink>
 
                         <NavLink
-                            className="nav-link"
+                                        className="nav-link"
 
-                            to="/">
-                        <NavLink
-                            className="nav-link"
-
-                            to={this.currentUser}>
-                            <h2>
-                                {this.props.user? `WELCOME ${this.props.user.email}  `: " Login "} 
-                            </h2>
-                        </NavLink>
-                            <h2>
-                                {this.logInOrOut()}
-                            </h2>
-                        </NavLink>
+                                        to={this.logInOrOut()}>
+                                        <h2>
+                                            {this.props.user? "LogOut" : " LogIn "} 
+                                        </h2>
+                                    </NavLink>
                     </nav>
+                    {this.props.user? ( <h3>Welcome {this.props.user.email}</h3>): null}
                 </div>
+
 
                 <NavbarRouter handleUserState={this.props.handleUserState} user={this.props.user} />
 
