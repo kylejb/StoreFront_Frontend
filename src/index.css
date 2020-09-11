@@ -105,8 +105,8 @@ button {
 }
 
 button:hover {
-  background-color: white;
-  border: #e04b52 solid 1px;
+  background-color: yellow;
+  
   color: black;
 }
 
@@ -217,14 +217,32 @@ border: none;
   margin-bottom: 20px;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  border: 10px solid silver;
+  border-radius: 10%;
+  /* border: 10px solid silver; */
   outline: none;
   transition: transform .3s cubic-bezier(0, .52, 0, 1);
   z-index: 1000;
+  background-image: url('https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG4.png');
+  background-size:cover;
+  background-position: center;
+  
 }
 
-#roundButton:hover, #roundButton text:hover{
+#roundButton strong{
+  color:black;
+  border-radius: 80%;
+  background-color: silver;
+  text-align: center;
+line-height: 50px;
+  font-weight: bold;
+  opacity:80%;
+  font-weight: 1000;
+  
+  padding: 10%;
+  
+}
+
+#roundButton:hover{
 
   cursor: pointer;
   
@@ -263,10 +281,24 @@ border: none;
 }  
 #cartMenu button {
   background-color:silver;
+  width: 25%;
 
   border: black solid 1px;
   color:black;
-}     
+}   
+
+#cartMenu button:hover{
+  background-color: yellow;
+}
+
+
+.checkOut {
+  background-color:silver;
+  width: 10vw;
+
+  border: black solid 1px;
+  color:black;
+}  
 
 
 #cartMenu.show {

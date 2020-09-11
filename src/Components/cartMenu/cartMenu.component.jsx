@@ -18,10 +18,14 @@ const CartMenuPart = ( props ) => {
                     Quantity: {props.item.quantity}
                 </div>
             </div>   
-            <button onClick={()=>props.addToCart(props.item,"remove")} >remove </button>
-            <button onClick={()=>props.addToCart(props.item,"delete")} >Delete Item </button>
+            <button className={props.styling} onClick={()=>props.addToCart(props.item,"remove")} >remove </button>
+            <button className={props.styling} onClick={()=>props.addToCart(props.item,"delete")} >Delete Item </button>
          </div> 
     );
 }
 
 export default CartMenuPart;
+
+CartMenuPart.defaultProps={
+    styling: undefined
+}

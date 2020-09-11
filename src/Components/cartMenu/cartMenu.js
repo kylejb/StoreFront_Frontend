@@ -49,7 +49,7 @@ class CartMenu extends React.Component{
         
         return(
             <>
-                <button id="roundButton" onClick={this.mouseChange}>{this.props.cart.map(item => item.quantity).reduce((a,b)=>a+b,0)}</button>
+                <p id="roundButton" onClick={this.mouseChange}><strong>{this.props.cart.map(item => item.quantity).reduce((a,b)=>a+b,0)}</strong></p>
                 
                 <div className={this.state.clickStatus} id="cartMenu" onMouseLeave={this.mouseChange}>
                     <h2>My Shopping Cart</h2>

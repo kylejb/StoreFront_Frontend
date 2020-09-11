@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AppRoute from './app.routes';
 import ShopContainer from './Containers/ShopContainer';
-import {Redirect} from 'react-router-dom'
+
 
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
   const setAppState = (newUserObj, newUserToken) => {
     console.log("setAppState", newUserObj, newUserToken)
     setUser(newUserObj); setToken(newUserToken)
-    return <Redirect to='/' />
+    
     
 
   }

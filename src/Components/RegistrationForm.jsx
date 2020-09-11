@@ -9,7 +9,8 @@ const RegistrationForm = ( props ) => {
         const handleSubmitHelper = (e) => {
             e.preventDefault();
             handleRegistrationForm()
-            props.handleUserState({name: name,email: email, password: password})
+            props.history.push('/')
+            
         }
 
    

@@ -36,7 +36,7 @@ class Dashboard extends Component {
 
                             to={this.currentUser}>
                             {console.log("i'm inside the navbar, props user is ",this.props.user,"the email is ",this.props.user)} 
-                            {this.props.user? `welcome ${this.props.user.email}`: " Login "} 
+                            {this.props.user? `WELCOME ${this.props.user.email}`: " Login "} 
                         </NavLink>
                         <NavLink
                             className="nav-link"
