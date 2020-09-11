@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Redirect} from 'react-router-dom'
 
 const LoginForm = ( props ) => {
     const [email, setEmail] = useState(""),
@@ -25,6 +26,7 @@ const LoginForm = ( props ) => {
         let response = await fetch("http://localhost:3000/api/v1/login", options);
         let data = await response.json();
         props.handleUserState(data.user, data.jwt)
+        return <Redirect to='/' />
     }
 
     console.log("Login Form ", props)

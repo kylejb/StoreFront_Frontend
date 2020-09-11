@@ -46,7 +46,7 @@ class Checkout extends Component {
             <>
                 {!this.state.redirects ? 
                 <>
-                    {this.props.cart.map(itemObj  => <CartMenuPart key={itemObj.id} item={itemObj} />  )}
+                    {this.props.cart.map(itemObj  => <CartMenuPart key={itemObj.id} item={itemObj} addToCart={this.props.addToCart}/>  )}
 
                     <h2>Checkout Confirmation</h2>
 
