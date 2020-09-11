@@ -3,6 +3,27 @@ import NavbarRouter from './navbar.routes';
 import { NavLink } from 'react-router-dom';
 
 class Dashboard extends Component {
+    constructor(){
+        super()
+        this.state=({
+            clickStatus: undefined
+        });
+    }
+
+    mouseChange = () =>{
+        let status = this.state.clickStatus
+        this.state.clickStatus? status=undefined: status="show"
+        this.setState({
+            ...this.state,
+            clickStatus: status
+        })
+    }
+
+    logInOrOut=()=>{
+
+      return this.props.user ? ` Logout `: " "
+    }
+    
     
     currentUser = () => {
         return ((this.props.user && this.props.user.email) || "login")
@@ -12,38 +33,55 @@ class Dashboard extends Component {
         return (
             <>
                 <header>Shop Header Here</header>
-                <div className="nav-header">
+                <p id="menuButton" onClick={this.mouseChange}><strong>Menu</strong></p>
+                <div id="navMenu" className={this.state.clickStatus} onMouseLeave={this.mouseChange}>
                    <nav>
                         <NavLink 
                             className="nav-link"
-                            to="orders">
-                            {" Orders "} 
+                            to="/">
+                            <h2>
+                                {" Home "} 
+                            </h2>
                         </NavLink>
                         <NavLink
                             className="nav-link"
 
                             to="/items">
-                            {" Items "}
+                            <h2>
+                                {" Items "}
+                            </h2>
                         </NavLink>
                         <NavLink
                             className="nav-link"
                             to="/checkout">
-
-                            {" Checkout Cart "}
-                        </NavLink>
-                        <NavLink
-                            className="nav-link"
-
-                            to={this.currentUser}>
-                            {console.log("i'm inside the navbar, props user is ",this.props.user,"the email is ",this.props.user)} 
-                            {this.props.user? `WELCOME ${this.props.user.email}`: " Login "} 
+                            <h2>
+                                {" Checkout "}
+                            </h2>
                         </NavLink>
                         <NavLink
                             className="nav-link"
 
                             to="/register">
+                            <h2>
+                                {" Register"}
+                            </h2>
+                        </NavLink>
 
-                            {" Register"}
+                        <NavLink
+                            className="nav-link"
+
+                            to="/">
+                        <NavLink
+                            className="nav-link"
+
+                            to={this.currentUser}>
+                            <h2>
+                                {this.props.user? `WELCOME ${this.props.user.email}  `: " Login "} 
+                            </h2>
+                        </NavLink>
+                            <h2>
+                                {this.logInOrOut()}
+                            </h2>
                         </NavLink>
                     </nav>
                 </div>

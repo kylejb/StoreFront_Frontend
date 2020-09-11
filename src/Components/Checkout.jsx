@@ -42,16 +42,26 @@ class Checkout extends Component {
     }
 
     render() {
+        const shipping = 3.99
         return (
             <>
                 {!this.state.redirects ? 
                 <>
+                <h2>Checkout Confirmation</h2>
                     {this.props.cart.map(itemObj  => <CartMenuPart key={itemObj.id} item={itemObj} addToCart={this.props.addToCart} styling = "checkOut"/>  )}
 
-                    <h2>Checkout Confirmation</h2>
 
                     <h3>Subtotal = ${this.props.total()}</h3>
+                    { (this.props.total() >= .5) ? ( <>
+                        <h5>Taxes: ${((parseFloat(this.props.total())+shipping) * 0.08875).toFixed(2)}</h5>
+                        <h5>Shipping: ${shipping}</h5> 
+                        <h2> TOTAL: ${this.calculateGrandTotal(this.props.total())} </h2>
+                    
+                    </>) : null}
                     {(this.props.total() >= .5) ?  (<button onClick={() => this.setState({ showForm: true })} value="Place Order" >Confirm Payment Details</button>) : null }
+
+
+
                     <Link to="/" key="back to shopping" ><button >Back to Shopping</button> </Link>
                     { this.state.showForm ? this.handleOrder() : null }
                 </>

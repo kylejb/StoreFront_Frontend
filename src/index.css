@@ -153,7 +153,12 @@ button:hover {
 
 .itemDisplay button {
   height:50px;
-  background-color:blue;
+  background-color:yellow;
+  color: black;
+}
+.itemDisplay button:active{
+  background-color: black;
+  color: yellow;
 }
 
 .itemDisplay img {
@@ -193,8 +198,16 @@ border: none;
 }
 
 
-.swag{
-  background-color: green;
+#recommendedItems{
+  background-color: yellow;
+  color:black;
+  padding: 10px;
+}
+#recommendedItems button:hover{
+  background-color: rgb(248, 244, 23);
+  opacity: 500%;
+  color:black;
+  padding: 10px;
 }
 
 .card .title {
@@ -295,7 +308,6 @@ line-height: 50px;
 .checkOut {
   background-color:silver;
   width: 10vw;
-
   border: black solid 1px;
   color:black;
 }  
@@ -311,13 +323,14 @@ line-height: 50px;
   display: flex;
   width: 100%;
   padding: 5px;
+  border:5px solid silver;
+  margin: 5px;
 }
 
 .column {
   flex-direction: column;
   margin-right: 10px;
   flex: 1;
-  border: 2px solid silver;
   max-width: 40vw;
 }
 
@@ -338,94 +351,11 @@ line-height: 50px;
   display: block;
   padding: 5px;
   justify-self: center;
-  height: 10vh;
+  height: 20vh;
   width: 10vw;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,6.2);
 }
 
-
-
-/* potential code to have main page display featured items
- */
-/* 
- <!DOCTYPE html>
-<html>
-<head>
-<style>
-.parent {
-display: grid;
-grid-template-columns: repeat(3);
-
-grid-column-gap: 13px;
-grid-row-gap: 0px;
-}
-.mainPage-container {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: 5vw 5vh vw;
-  grid-template-columns: repeat(3, 1fr);
-grid-template-rows: 1fr;
-grid-column-gap: 13px;
-grid-row-gap: 0px;
-border: red solid 10px;
-}
-
-.mainPage-container > div {
-  text-align: center;
-  padding: 20px 0;
-  font-size: 30px;
-  width: 100%;
-  overflow: hidden;
-  overflow-wrap: anywhere;
-  
-  
-}
-</style>
-</head>
-<body>
-
-<h1>The justify-content Property</h1>
-
-<p>Use the <em>justify-content</em> property to align the grid inside the container.</p>
-
-<p>The value "space-around" will give the columns equal amount of space around them:</p>
-
-<div class="parent">
-
-<div class="mainPage-container">
-  <div class="image"><img src="http://lorempixel.com/702/200/"></div>
-  
-  <div class="column"><div>Name: Star Wars55</div><div>Price: $0.08</div></div>
-  
-  <div>Quanity: 1</div>
-  
-</div>
-
-<div class="mainPage-container">
-  <div class="image"><img src="http://lorempixel.com/702/200/"></div>
-  
-  <div class="column"><div>Name: Star Wars55</div><div>Price: $0.08</div></div>
-  
-  <div>Quanity: 1</div>
-  
-</div>
-<div class="mainPage-container">
-  <div class="image"><img src="http://lorempixel.com/702/200/"></div>
-  
-  <div class="column"><div>Name: Star Wars55</div><div>Price: $0.08</div></div>
-  
-  <div>Quanity: 1</div>
-  
-</div>
-
-
-
-
-</div>
-
-
-</body>
-</html> */
  
 .mainPageImage img{
 max-width: 50vw;
@@ -448,3 +378,74 @@ max-width: 50vw;
 }
 */
 
+#navMenu {
+  
+  width: 15vw;
+  height: 100vh;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate3d(-25vw, 0, 0);
+  transition: transform .3s cubic-bezier(0, .52, 0, 1);
+  z-index: 1000;
+  
+    
+}
+
+#navMenu h2,ul,li {
+color: silver;
+margin-right: 15px;
+text-decoration: none;
+}
+
+#navMenu a:hover {
+text-decoration: underline;
+color: yellow;
+}  
+#navMenu button {
+background-color:silver;
+width: 25%;
+
+border: black solid 1px;
+color:black;
+}   
+
+#navMenu button:hover{
+background-color: yellow;
+}
+
+
+
+#navMenu.show {
+transform: translate3d(0vw, 0, 0);
+} 
+
+#menuButton {
+  position: fixed;
+  left: 0;
+  top: 20px;
+  background-color: black;
+  margin-bottom: 20px;
+  width: 70px;
+  height: 30px;
+  border: 10px solid silver;
+  outline: none;
+  transition: transform .3s cubic-bezier(0, .52, 0, 1);
+  z-index: 1000;
+  background-size:cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  
+}
+
+#menuButton strong{
+  color:silver;
+  text-align: center;
+  line-height: 30px;
+  font-weight: 1000;
+  
+  padding: 10%;
+  
+}

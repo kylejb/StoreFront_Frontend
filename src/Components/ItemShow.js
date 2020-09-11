@@ -6,6 +6,7 @@ const ItemShow = (props) => {
   console.log("the params ItemId is ",props.match.params.itemId)
    const item =  props.items.find(itemObj=> itemObj.id === parseInt(props.match.params.itemId))
    let recommendedItems =  props.items.slice(0,5)
+   console.log("i'm inside itemshow",item)
    
    const renderPage=()=>{
 
@@ -34,7 +35,7 @@ const ItemShow = (props) => {
               
                   <div>
                     <h1> Recommended Items </h1>
-                    <div className="swag" >
+                    <div id="recommendedItems" >
                     <ItemList items={recommendedItems} styling={"gallery"} addToCart ={props.addToCart}/> 
                     </div>
                   </div>

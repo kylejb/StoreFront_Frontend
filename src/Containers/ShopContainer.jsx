@@ -12,6 +12,7 @@ class ShopContainer extends Component {
 
     // Modifies Cart
     handleAddToCart = ( selectedProduct, change = "add" ) => {
+        console.log("i'm inside handleAddToCart",selectedProduct)
 
         let newCartArray = [...this.state.cart], 
             selectedProductCartIndex = this.state.cart.findIndex( itemObj => itemObj.id === selectedProduct.id );
@@ -57,7 +58,7 @@ class ShopContainer extends Component {
 
         return (
             <>
-                <h4>Shop Container</h4>
+                
                 <Route exact path="/checkout" render={() => <Checkout cart={this.state.cart} total={this.calculateSubTotal} token={this.props.token} clearCart={this.clearCart} addToCart={this.handleAddToCart} />} />
                 <ItemsContainer addToCart={this.handleAddToCart} cart={this.state.cart} total={this.calculateSubTotal}/>
             </>
