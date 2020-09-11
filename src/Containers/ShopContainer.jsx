@@ -10,36 +10,40 @@ class ShopContainer extends Component {
         cart: []
     }
 
-    //* Add to Cart
-    handleAddToCart = ( selectedProduct,change="add" ) => {
-        console.log("handleAddToCart in ShopContainer... arg is: ", selectedProduct);
-        //* cart testing (see code/comments below for ideas to make cart more robust)
-        // let newCartArray = [...this.state.cart, selectedProduct];
-        // this.setState({ cart: newCartArray }, () => console.log("ShopContainer CartState: ", this.state.cart));
-        let newCartArray = this.state.cart
+    // Modifies Cart
+    handleAddToCart = ( selectedProduct, change = "add" ) => {
 
-        let luis = this.state.cart.findIndex(itemObj=> itemObj.id === selectedProduct.id)
-        if (luis !==-1){
-            change === "add" ?   newCartArray[luis].quantity += 1 : newCartArray[luis].quantity -= 1
+        let newCartArray = [...this.state.cart], 
+            selectedProductCartIndex = this.state.cart.findIndex( itemObj => itemObj.id === selectedProduct.id );
 
-            newCartArray[luis].quantity <1 ? newCartArray.splice(luis,1) : selectedProduct="beer"
-           
-
-
-        } else{
-          newCartArray = [...this.state.cart, {...selectedProduct,quantity:1}]
-        }
-
-       this.setState({ cart: newCartArray }, () => console.log("ShopContainer CartState: ", this.state.cart));
+        if (selectedProductCartIndex !== -1) {
+            switch (change) {
+                case "add":
+                    newCartArray[selectedProductCartIndex].quantity += 1;
+                    break;
+                case "remove":
+                    (newCartArray[selectedProductCartIndex].quantity <= 1) ? newCartArray.splice(selectedProductCartIndex,1) : newCartArray[selectedProductCartIndex].quantity -= 1; 
+                    break;
+                case "delete":
+                    newCartArray.splice(selectedProductCartIndex, 1);
+                    break;
+                default:
+                    // placeholder for error handling
+                    break;
+            };
+        } else {
+            newCartArray.push({...selectedProduct, quantity: 1})
+        };
+        this.setState({ cart: newCartArray });
     }
-       
+
     //* Add to Cart Helper - product verification
-    checkProduct(productId) {
+    checkProduct = (productId) => {
         let cart = this.state.cart;
         return cart.some((item) => item.id === productId);
     }
 
-    calculateSubTotal = () =>{
+    calculateSubTotal = () => {
         return this.state.cart.map(item => item.cost*item.quantity).reduce((a,b)=>a+b,0).toFixed(2)
     }
 
@@ -53,7 +57,6 @@ class ShopContainer extends Component {
 
         return (
             <>
-
                 <h4>Shop Container</h4>
                 <Route exact path="/checkout" render={() => <Checkout cart={this.state.cart} total={this.calculateSubTotal} token={this.props.token} clearCart={this.clearCart} />} />
                 <ItemsContainer addToCart={this.handleAddToCart} cart={this.state.cart} total={this.calculateSubTotal}/>
