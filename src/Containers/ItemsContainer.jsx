@@ -15,7 +15,9 @@ class ItemsContainer extends React.Component {
     constructor(){
         super()
         this.state={
-            items: []
+            items: [],
+            featuredItems: [],
+            newArrivals: []
         }
     }
 
@@ -23,12 +25,34 @@ class ItemsContainer extends React.Component {
         fetch(API+"items")
         .then(response => response.json())
         .then(itemsObj => {
+            const featuredItems = this.randomlySelectItems(itemsObj),
+            newArrivals = this.randomlySelectItems(itemsObj)
+
             this.setState({...this.state,
-            items: itemsObj})}
+            items: itemsObj,
+            featuredItems:featuredItems,
+            newArrivals: newArrivals
+        
+        })
+    
+    }
         );
     }
 
-    componentDidMount() {
+
+    randomlySelectItems = (itemsObj) =>{
+
+          const randomNumber = Math.floor(Math.random()*(itemsObj.length-5))
+          const randomItems = itemsObj.slice(randomNumber,randomNumber+5)
+          console.log("i'm inside randomlySelectItems",randomItems)
+          return randomItems
+            
+    
+
+     }
+
+
+    componentDidMount(){
        this.getItems();
     }
 
@@ -38,7 +62,7 @@ class ItemsContainer extends React.Component {
         return(
             <>
             <CartMenu  cart={this.props.cart} total={this.props.total}  addToCart={this.props.addToCart} />
-            <Route exact path="/" render={(routerProps) => <MainPageContainer {...routerProps} items={this.state.items} addToCart={this.props.addToCart} />} />
+            <Route exact path="/" render={(routerProps) => <MainPageContainer {...routerProps} items={this.state.items} addToCart={this.props.addToCart} featuredItems={this.state.featuredItems} newArrivals={this.state.newArrivals}/>} />
                 <div className="grid-container">
                     <Route  path={`/items/:itemId`} render={routerProps => <ItemShow {...routerProps} items={this.state.items} addToCart={this.props.addToCart} />} />
                     <Route  exact path="/items" render={routerProps => <ItemList {...routerProps} items={this.state.items} addToCart={this.props.addToCart} />} />

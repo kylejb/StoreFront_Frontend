@@ -18,11 +18,11 @@ body, input, select, textarea {
 header {
   grid-area: header;
   font-size: 2.5rem;
-  background-color: #4c6c8c;
-  color: #ffffff;
+  background-color: black;
+  color: silver;
   display: flex;
   align-items: center;
-  padding: .5px;
+  padding: 5px;
 }
 
 main {
@@ -429,7 +429,7 @@ transform: translate3d(0vw, 0, 0);
   margin-bottom: 20px;
   width: 70px;
   height: 30px;
-  border: 10px solid silver;
+  border: 6px solid silver;
   outline: none;
   transition: transform .3s cubic-bezier(0, .52, 0, 1);
   z-index: 1000;

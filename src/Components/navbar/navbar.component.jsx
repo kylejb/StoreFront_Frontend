@@ -29,7 +29,7 @@ class Dashboard extends Component {
     render() {
         return (
             <>
-                <header>Shop Header Here</header>
+                <header>Code-Name: Your Stand</header>
                 <p id="menuButton" onClick={this.mouseChange}><strong>Menu</strong></p>
                 <div id="navMenu" className={this.state.clickStatus} onMouseLeave={this.mouseChange}>
                    <nav>

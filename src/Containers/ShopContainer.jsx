@@ -54,7 +54,6 @@ class ShopContainer extends Component {
    
 
     render() {
-        console.log("Render ShopContainer (state) is: ", this.state);
 
         return (
             <>
