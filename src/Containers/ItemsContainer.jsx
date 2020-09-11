@@ -44,7 +44,6 @@ class ItemsContainer extends React.Component {
 
           const randomNumber = Math.floor(Math.random()*(itemsObj.length-5))
           const randomItems = itemsObj.slice(randomNumber,randomNumber+5)
-          console.log("i'm inside randomlySelectItems",randomItems)
           return randomItems
             
     

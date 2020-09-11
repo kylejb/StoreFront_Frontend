@@ -28,7 +28,6 @@ const RegistrationForm = ( props ) => {
 
         let response = await fetch("http://localhost:3000/api/v1/users", options);
         let data = await response.json();
-        console.log("handleRegistrationForm Fetch Response: ", data);
         props.handleUserState(data.user,data.jwt)
     }
 

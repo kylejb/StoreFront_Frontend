@@ -3,10 +3,9 @@ import ItemList from '../Containers/ItemList'
  
 
 const ItemShow = (props) => {
-  console.log("the params ItemId is ",props.match.params.itemId)
    const item =  props.items.find(itemObj=> itemObj.id === parseInt(props.match.params.itemId))
    let recommendedItems =  props.items.slice(0,5)
-   console.log("i'm inside itemshow",item)
+   
    
    const renderPage=()=>{
 
@@ -28,7 +27,7 @@ const ItemShow = (props) => {
                     <div>
                     <p>{item.description}</p>
                     <h3>{`$${item.cost}`}</h3>
-                    <button  onClick={()=> props.addToCart(item)}>Add to Cart {"🛒"}</button>
+                    <button  onClick={()=> props.addToCart(item)}>{"Add to Cart 🛒"}</button>
                     </div>
                   </div>
                 </div>

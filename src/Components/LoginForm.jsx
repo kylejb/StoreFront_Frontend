@@ -28,7 +28,6 @@ const LoginForm = ( props ) => {
         props.history.push('/')
     }
 
-    console.log("Login Form ", props)
     return (
         <>
             <h2>LoginForm</h2>

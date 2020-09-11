@@ -8,7 +8,8 @@ class Checkout extends Component {
     state = {
         showForm: false,
         redirects: false, 
-        prevOrder: [] 
+        prevOrder: [] ,
+        receipt: ""
     }
 
     makePayment = async (billingAddressObj, shippingAddressObj) => {
@@ -26,7 +27,10 @@ class Checkout extends Component {
             this.setState({redirects: true, prevOrder: this.props.cart});
             this.props.clearCart();
         };
-        // let data = await response.json();
+        let data = await response.json();
+        this.setState({...this.state,receipt:data.payment_confirmation})
+        
+
     }
 
     handleOrder = () => {
@@ -70,6 +74,8 @@ class Checkout extends Component {
                 {/* Order Confirmation Here */}
                     <h3>Purchase Confirmation</h3>
                     {this.state.prevOrder.map(itemObj  => <CartMenuPart key={itemObj.id} item={itemObj} />  )}
+                    <h2> Receipt </h2>
+                    <a target ="_blank" href= {this.state.receipt} ><h3>{this.state.receipt}</h3></a> 
                 </div> }
             </>
         );   

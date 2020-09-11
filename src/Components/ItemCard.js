@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 class ItemCard extends React.Component{
 
     seeMore =()=>{
-        console.log(this.props.name, "was clicked to show the show page")
         // return (
         // <div className="fling-minislide">
         //     <img src={this.props.img} alt={this.props.name} className="product-image" />
@@ -16,7 +15,6 @@ class ItemCard extends React.Component{
 
     addToCartHelper = ( e ) => {
         e.preventDefault();
-        console.log(this.props.name, "was added to cart")
         this.props.addToCart(this.props);
     }
     

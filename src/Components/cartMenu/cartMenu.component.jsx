@@ -5,7 +5,7 @@ const CartMenuPart = ( props ) => {
     return (
         <div className="cart-item">
             <div className="image">
-                <img src={props.item.img || props.item.img_url} />
+                <img src={props.item.img || props.item.img_url}  alt={props.item.name}/>
             </div>
             <div className="column">
                 <div>

@@ -38,7 +38,7 @@ class CartMenu extends React.Component{
                 return(
                     <>
                         <p> Cart is Empty</p>
-                        <img src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG4.png" style={{width:"100%"}} />
+                        <img src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG4.png" alt="shopping cart logo" style={{width:"100%"}} />
                     </>
                 )
             }

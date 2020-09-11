@@ -8,7 +8,6 @@ class MainPageContainer extends React.Component{
     
 
     renderFeaturedItems = ()=>{
-        console.log("i'm inside renderFeaturedItems", this.props.featuredItems)
         return this.props.featuredItems.map(itemObj => <FeaturedItemDisplay key={itemObj.id} name={itemObj.name} img={itemObj.img_url} description={itemObj.description} id={itemObj.id}/>)
     }
 
