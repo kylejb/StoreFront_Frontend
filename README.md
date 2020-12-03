@@ -13,7 +13,7 @@
 
 A functioning prototype for a generic eCommerce website. Noteable features include a working shopping cart that processes payments through Stripe's API.
 
-[Click here](https://github.com/kylejb/storefront_backend) to view the backend repository.
+[Click here](https://github.com/kylejb/storefront_backend#about) to view the backend repository.
 
 ## Authors
 
