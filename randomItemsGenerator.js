@@ -1,3 +1,5 @@
+//* can be incorporated to generate random items for index/show pages.
+
 const getRandomFromArray = (arr, n)  => {
     let result = new Array(n), 
         length = arr.length, //6
@@ -11,6 +13,7 @@ const getRandomFromArray = (arr, n)  => {
     return result;
 }
 
-let arr = ["a", "b", "c", "d", "e", "f"]
 
-getRandomFromArray(arr, 4)
+// uncomment to test the function.
+// let arr = ["a", "b", "c", "d", "e", "f"]
+// getRandomFromArray(arr, 4)
